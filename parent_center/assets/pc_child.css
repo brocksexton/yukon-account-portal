@@ -1,0 +1,232 @@
+/*
+  Parent Center - Child pages (modular additions)
+  Keep this file small and focused; avoid duplicating parent_center.css.
+*/
+
+.pc-childNav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 10px 0 14px;
+}
+
+/*
+  Fixed-width feel (matches the hero/header strip) while staying mobile-friendly.
+  parent_center.css already provides a shell, but we slightly widen it and tighten
+  padding on small screens so the layout feels consistent across all child pages.
+*/
+.pc-shell{
+  max-width:1100px;
+}
+
+@media (max-width: 520px){
+  .pc-shell{ padding:0 12px; }
+  .pc-card{ padding:22px 18px 18px; }
+}
+
+.pc-childNavLink {
+  display: inline-flex;
+  align-items: center;
+  height: 36px;
+  padding: 0 12px;
+  border-radius: 999px;
+  font-weight: 900;
+  font-size: 14px;
+  color: var(--cp-ink);
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.04);
+  transition: transform 120ms ease, background 120ms ease;
+}
+
+.pc-childNavLink:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.pc-childNavLink.is-active {
+  background: rgba(13, 110, 253, 0.12);
+  border-color: rgba(13, 110, 253, 0.25);
+}
+
+.pc-kpiGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+@media (max-width: 900px) {
+  .pc-kpiGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 520px) {
+  .pc-kpiGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.pc-kpi {
+  border-radius: 16px;
+  background: rgba(255,255,255,0.75);
+  border: 1px solid rgba(0,0,0,0.08);
+  padding: 12px 14px;
+}
+
+.pc-kpiLabel {
+  font-size: 12px;
+  font-weight: 900;
+  color: rgba(0,0,0,0.55);
+}
+
+.pc-kpiValue {
+  margin-top: 4px;
+  font-size: 22px;
+  font-weight: 1000;
+  color: var(--cp-ink);
+}
+
+.pc-kpiSub {
+  margin-top: 2px;
+  font-size: 12px;
+  color: rgba(0,0,0,0.55);
+}
+
+.pc-equipped { margin-top: 14px; }
+
+/* Playercard + equipped in one cohesive box */
+.pc-playercardBox--stack{
+  flex-direction:column;
+  align-items:stretch;
+  justify-content:flex-start;
+  padding:14px;
+  gap:12px;
+}
+
+.pc-playercardBox--stack .pc-playercardWrap{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.pc-playercardDivider{
+  height:2px;
+  border-radius:999px;
+  background:rgba(0,0,0,0.06);
+}
+
+.pc-playercardEquip{
+  padding:0 2px 2px;
+}
+
+.pc-playercardEquip .pc-equippedGrid{
+  gap:10px;
+}
+
+.pc-playercardEquip .pc-equippedItem{
+  background:rgba(255,255,255,0.78);
+}
+
+.pc-equippedHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.pc-equippedTitle {
+  font-weight: 1000;
+  font-size: 14px;
+  color: var(--cp-ink);
+}
+
+.pc-equippedHint {
+  font-size: 12px;
+  color: rgba(0,0,0,0.55);
+}
+
+.pc-equippedGrid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 10px;
+}
+
+@media (max-width: 900px) {
+  .pc-equippedGrid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+}
+
+@media (max-width: 700px) {
+  .pc-equippedGrid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+@media (max-width: 520px) {
+  .pc-equippedGrid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+.pc-equippedItem {
+  border-radius: 14px;
+  /* background: rgba(255,255,255,0.85);
+  border: 1px solid rgba(0,0,0,0.08);
+  padding: 8px; */
+  text-align: center;
+}
+
+.pc-equippedItem img {
+  width: 54px;
+  height: 54px;
+  border-radius: 14px;
+  border: 2px solid rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.95);
+  display: block;
+  margin: 0 auto;
+  image-rendering: auto;
+}
+
+.pc-equippedSlot {
+  margin-top: 6px;
+  font-size: 12px;
+  font-weight: 900;
+  color: rgba(0,0,0,0.6);
+}
+
+.pc-equippedId {
+  font-size: 12px;
+  color: rgba(0,0,0,0.5);
+}
+
+/* Role badges (PSA / Tour Guide) */
+.pc-roleBadges{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+
+.pc-rolePill{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  height:34px;
+  padding:0 12px 0 10px;
+  border-radius:999px;
+  background:rgba(255,255,255,0.82);
+  border:1px solid rgba(0,0,0,0.08);
+  box-shadow:0 1px 0 rgba(0,0,0,0.04);
+  font-weight:1000;
+  color:var(--cp-ink);
+}
+
+.pc-roleIcon{
+  width:24px;
+  height:24px;
+  border-radius:8px;
+  border:2px solid rgba(0,0,0,0.08);
+  background:rgba(255,255,255,0.95);
+}
+
+.pc-roleText{
+  font-size:13px;
+  line-height:1;
+}

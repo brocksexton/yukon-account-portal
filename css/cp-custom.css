@@ -1,0 +1,510 @@
+/* Small additions on top of the CPJourney CSS bundles. */
+
+/*
+  Force the classic Club Penguin / CPJourney deep-blue background.
+  The mirrored CSS sometimes references a repeating background image that
+  may not be present in this PHP mirror, so we harden the look here.
+*/
+:root{
+  --bs-body-bg:transparent;
+
+  /* Parent Center-aligned tokens (for cohesion across the site) */
+  --pc-blue-900:#0a4f87;
+  --pc-blue-800:#0b5d9f;
+
+  --pc-panel:#eaf2f7;
+  --pc-card:#ffffff;
+
+  --pc-ink:#0b2b45;
+  --pc-ink-2:#234a63;
+  --pc-muted:#4f768f;
+
+  --pc-border:#bcd3e4;
+
+  /* Shadow language used across Parent Center */
+  --pc-shadow:0 12px 0 rgba(0,0,0,0.08);
+  --pc-shadow-soft:0 10px 24px rgba(0,0,0,0.08);
+}
+body{background:#0b58b1;}
+.layout_layout__JVHGL{background-image:none!important;background-color:#0b58b1!important;}
+
+/* Keep the main content area readable on blue without turning the whole page white */
+.container_container__DpiRT{background:transparent!important;}
+
+/* Homepage hero (island banner) */
+.cp-hero{position:relative;height:380px;border-radius:0;margin:-16px -16px 18px -16px;overflow:hidden;}
+.cp-hero::before{content:"";position:absolute;inset:0;background:url("_next/static/media/island.c17446d0.png") center/cover no-repeat;}
+.cp-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,88,177,0.15),rgba(11,88,177,0.55));}
+.cp-hero-inner{position:relative;z-index:1;height:100%;display:flex;align-items:flex-end;justify-content:center;padding:22px 18px;}
+.cp-hero-pill{max-width:920px;width:100%;background:rgba(0,0,0,0.22);backdrop-filter:blur(2px);border:2px solid rgba(83,204,249,0.45);box-shadow:var(--pc-shadow);border-radius:22px;padding:14px 16px;color:#fff;text-align:center;}
+.cp-hero-pill h2{margin:0 0 4px;font-family:CCComicrazy, Arial, sans-serif;text-transform:uppercase;letter-spacing:1px;color:#fff;}
+.cp-hero-pill p{margin:0;font-family:Burbank Small Medium, Arial, sans-serif;opacity:0.95;}
+
+/* Panels elsewhere can stay "card-like" but slightly less blinding */
+.cp-panel{background:var(--pc-card);}
+
+.cp-container-top{
+  height: 20px;
+  background-repeat: repeat-x;
+  background-position: top center;
+  margin: -16px -16px 16px -16px;
+}
+
+.cp-announce{
+  color:#fff;
+  opacity:0.95;
+}
+
+.cp-flash{
+  margin: 12px auto 0;
+  max-width: 920px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-family: Burbank Small Medium, Arial, sans-serif;
+  font-size: 0.95rem;
+  color: #fff;
+  box-shadow: 0 2px 0 rgba(0,0,0,.25);
+}
+.cp-flash-success{background:#2e9b3a;}
+.cp-flash-error{background:#b22b2b;}
+.cp-flash-info{background:#1b74b8;}
+
+.cp-panel{
+  max-width: 920px;
+  margin: 0 auto;
+  background: var(--pc-card);
+  border-radius: 22px;
+  padding: 22px;
+  border: 2px solid rgba(188,211,228,0.85);
+  box-shadow: var(--pc-shadow);
+}
+
+.cp-title{
+  font-family: CCComicrazy, Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+  color: #2e6faa
+}
+
+.cp-sub{
+  font-family: Burbank Small Medium, Arial, sans-serif;
+  color: var(--pc-ink-2);
+  font-weight: 700;
+}
+
+.cp-form label{display:block;margin:10px 0 4px;color:#0b3864;}
+.cp-form input{
+  width:100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 2px solid #3a92d6;
+  color: #0b3864;
+  outline: none;
+}
+.cp-form input:focus{border-color:#ff9a00;}
+
+.cp-grid{
+  display:grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+@media (min-width: 900px){
+  .cp-grid{grid-template-columns: 300px 1fr;}
+}
+
+.cp-avatar{
+  width: 260px;
+  max-width: 100%;
+  border-radius: 14px;
+  background: #cfe9ff;
+  border: 3px solid #13497d;
+}
+
+.cp-kv{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  font-family: Burbank Small Medium, Arial, sans-serif;
+}
+.cp-kv div{
+  background: #297dc3;
+  border: 2px solid #13497d;
+  padding: 10px;
+  border-radius: 12px;
+}
+.cp-kv b{display:block;color:#13497d;}
+
+/* Homepage KV labels (Parent Center-like) */
+.cp-home-stats .cp-kv b{
+  color: var(--pc-muted);
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  font-size: 0.78rem;
+}
+
+
+.cp-table{width:100%;border-collapse:separate;border-spacing:0 8px;font-family: Burbank Small Medium, Arial, sans-serif;}
+.cp-table th{text-align:left;color:#13497d;font-size:0.9rem;}
+.cp-table td{background:#286dc3;border:2px solid #13487d;padding:8px 10px;border-radius:12px;}
+
+/* Small circular avatar in header nav */
+.cp-navAvatarWrap{display:flex;align-items:center;}
+.cp-navAvatarLink{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;margin-left:10px;border-radius:999px;background:rgba(255,255,255,0.12);border:2px solid rgba(83,204,249,0.45);box-shadow:0 3px 0 rgba(0,0,0,0.18);overflow:hidden;}
+.cp-navAvatar{width:44px;height:44px;display:block;}
+
+@media (max-width: 650px){
+  .cp-navAvatarLink{width:40px;height:40px;}
+  .cp-navAvatar{width:40px;height:40px;}
+}
+
+/* Logged-in user chip (replaces the big Play Now button in the header) */
+.cp-userChip{/*display:flex;*/align-items:center;justify-content:flex-end;position:relative;z-index:5;}
+.cp-userChipLink{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:8px 12px;
+  border-radius:18px;
+  background:rgba(255,255,255,0.10);
+  border:2px solid rgba(83,204,249,0.55);
+  box-shadow:0 4px 0 rgba(0,0,0,0.18);
+  text-decoration:none;
+  white-space:nowrap;
+}
+.cp-userChipLink:hover{background:rgba(255,255,255,0.14);}
+.cp-userChipAvatarWrap{
+  width:50px;
+  height:50px;
+  border-radius:999px;
+  overflow:hidden;
+  background:rgba(255,255,255,0.10);
+  border:2px solid rgba(0,0,0,0.15);
+  flex:0 0 auto;
+}
+
+.cp-userChipAvatarWrap svg{
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.cp-userChipAvatar{display:block !important;opacity:1 !important;visibility:visible !important;width:50px;height:50px;}
+.cp-userChipText{display:flex;flex-direction:column;line-height:1.05;}
+.cp-userChipText,.cp-userChipName,.cp-userChipSub{white-space:nowrap;}
+.cp-userChipName{font-family:Burbank Small Medium, Arial, sans-serif;color:#fff;font-size:1.05rem;}
+.cp-userChipSub{font-family:Burbank Small Medium, Arial, sans-serif;color:#cfe9ff;font-size:0.85rem;opacity:0.95;}
+
+@media (max-width: 650px){
+  .cp-userChipText{display:none;}
+  .cp-userChipAvatarWrap{width:44px;height:44px;}
+  .cp-userChipAvatar{width:44px;height:44px;}
+}
+
+/* --- Layered avatar (no GD needed) --- */
+.cp-avatar-stack{
+  position:relative;
+  width:220px;
+  height:220px;
+  border-radius:14px;
+  background:#cfe9ff;
+  border:3px solid #13497d;
+  overflow:hidden;
+
+  /* Tuning knobs to match in-game playercard positioning */
+  --penguin-scale: 1.22;
+  --penguin-x: 0px;
+  --penguin-y: 14px;
+}
+
+/* Scale/position ONLY the penguin and wearable layers (not the photo bg/pin) */
+.cp-avatar-penguin{
+  position:absolute;
+  left:50%;
+  top:50%;
+  width:100%;
+  height:100%;
+  transform:
+    translate(-50%, -50%)
+    translate(var(--penguin-x), var(--penguin-y))
+    scale(var(--penguin-scale));
+  transform-origin: center center;
+  z-index:2;
+  pointer-events:none;
+}
+
+/* Playercard background support (photos/{id}.png) */
+.cp-avatar-card{
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Player pin/icon (icon/120/{id}.png) */
+.cp-avatar-pin{
+  position:absolute;
+  left:10px;
+  top:10px;
+  width:54px;
+  height:54px;
+  object-fit:contain;
+  z-index:4;
+  filter: drop-shadow(0 2px 0 rgba(0,0,0,0.25));
+}
+
+.cp-avatar-name{
+  position:absolute;
+  top:10px;
+  left:10px;
+  right:10px;
+  text-align:center;
+  font-family: Burbank Small Medium, Arial, sans-serif;
+  color:#0b3a66;
+  font-size:28px;
+  line-height:1;
+  text-shadow:0 2px 0 rgba(255,255,255,0.75);
+  z-index:5;
+  pointer-events:none;
+}
+
+/* Bottom penguin layer (already pre-coloured sprite) */
+.cp-avatar-colour{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit: contain;
+  z-index:1;
+  pointer-events:none;
+}
+
+/* Upper penguin details layer (NOT tinted) */
+.cp-avatar-top{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit: contain;
+  z-index:2;
+  pointer-events:none;
+}
+
+.cp-avatar-layer{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit: contain;
+  image-rendering: auto;
+  z-index:3;
+  pointer-events:none;
+}
+
+.cp-avatar-outline{
+  position:absolute;
+  inset:0;
+  border:6px solid rgba(19,73,125,0.65);
+  border-radius:14px;
+  z-index:6;
+  pointer-events:none;
+}
+
+.cp-pill{
+  display:inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #297dc3;
+  border: 2px solid #13497d;
+  font-family: Burbank Small Medium, Arial, sans-serif;
+  font-size: 0.85rem;
+}
+
+.cp-muted{opacity:0.8;font-size:0.9rem;color:#1458a3;}
+
+/* Make links look more CP-ish inside panels */
+.cp-panel a{color:#0b58b1;text-decoration:none;}
+.cp-panel a:hover{text-decoration:underline;color:#ff9a00;}
+
+/* Text logo (avoids CPJourney branding) */
+.cp-logoText{
+  display:inline-flex;
+  flex-direction:column;
+  text-decoration:none;
+  line-height:0.95;
+  font-family: CCComicrazy, Arial, sans-serif;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  filter: drop-shadow(0 2px 0 rgba(0,0,0,0.35));
+}
+.cp-logoLine1{
+  color:#e9f6ff;
+  font-size: 1.05rem;
+}
+.cp-logoLine2{
+  color:#ff9a00;
+  font-size: 1.15rem;
+}
+.cp-dotlol{color:#e9f6ff; font-size:0.95em; margin-left:2px;}
+.cp-logoText--small .cp-logoLine1{font-size:0.85rem;}
+.cp-logoText--small .cp-logoLine2{font-size:0.95rem;}
+
+/* Make text readable on blue background */
+.container_container__DpiRT{color:#0b3b66;}
+.cp-card, .cp-panel{color:#0b3b66;}
+.cp-pageTitle, .container_pageTitle__7_dR1{color:#0b3b66;}
+
+
+/* --- Homepage revamp --- */
+.cp-hero-actions{margin-top:12px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap;align-items:center}
+.cp-hero-meta{margin-top:10px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap;align-items:center}
+.cp-pill{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;color:#0b3864;font-family:Burbank Small Medium, Arial, sans-serif;border:2px solid rgba(11,56,100,0.15);box-shadow:0 2px 0 rgba(0,0,0,0.08)}
+
+.cp-home-wrap{max-width:940px;margin:0 auto;padding:0 10px 10px}
+.cp-home-grid{display:grid;grid-template-columns:1fr;gap:18px}
+@media (min-width: 980px){
+  .cp-home-grid{grid-template-columns:1fr 1fr;align-items:start}
+}
+
+.cp-home-card{padding:22px;background:linear-gradient(#e9f3fa 0px, #ffffff 220px);}
+.cp-home-cardHeader{margin-bottom:12px}
+
+.cp-home-profile{display:grid;grid-template-columns:1fr;gap:14px;align-items:start}
+@media (min-width: 820px){
+  .cp-home-profile{grid-template-columns:260px 1fr}
+}
+
+.cp-home-avatar{border-radius:22px;background:#ffffff;border:3px solid rgba(188,211,228,0.95);box-shadow:var(--pc-shadow-soft);padding:12px;display:flex;justify-content:center;align-items:center;overflow:hidden}
+.cp-home-avatar svg, .cp-home-avatar img{max-width:100%;height:auto}
+
+.cp-home-stats .cp-kv div{
+  background:#ffffff;
+  border:2px solid rgba(188,211,228,0.90);
+  box-shadow:var(--pc-shadow-soft);
+}
+.cp-home-shortcuts{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+.cp-home-shortcuts .feature-card_button__3CdS5{margin:0}
+.cp-home-shortcuts .cp-disabledLink{opacity:0.55;cursor:not-allowed;filter:grayscale(0.25)}
+.cp-home-note{margin-top:12px;padding:12px 14px;border-radius:16px;background:var(--pc-panel);border:2px solid rgba(188,211,228,0.90);font-family:Burbank Small Medium, Arial, sans-serif;color:var(--pc-ink-2)}
+
+.cp-home-list{margin:10px 0 0;padding-left:18px;font-family:Burbank Small Medium, Arial, sans-serif;color:var(--pc-ink-2)}
+.cp-home-list li{margin:8px 0}
+.cp-home-inlineCta{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+
+.cp-home-steps{display:grid;grid-template-columns:1fr;gap:10px;margin-top:14px}
+.cp-home-step{display:flex;gap:12px;align-items:flex-start;background:#ffffff;border:2px solid rgba(188,211,228,0.90);border-radius:18px;padding:12px 14px;box-shadow:var(--pc-shadow-soft)}
+.cp-home-stepNum{width:34px;height:34px;border-radius:10px;background:#ff9a00;border:2px solid rgba(0,0,0,0.15);display:flex;align-items:center;justify-content:center;font-family:CCComicrazy, Arial, sans-serif;color:#1a3c5e}
+.cp-home-stepBody{font-family:Burbank Small Medium, Arial, sans-serif;color:var(--pc-ink-2)}
+.cp-home-stepBody b{color:var(--pc-ink)}
+
+.cp-home-featureGrid{display:grid;grid-template-columns:1fr;gap:10px;margin-top:12px}
+@media (min-width: 820px){
+  .cp-home-featureGrid{grid-template-columns:1fr 1fr}
+}
+.cp-home-miniFeature{background:#ffffff;border:2px solid rgba(188,211,228,0.90);border-radius:18px;padding:14px 14px;font-family:Burbank Small Medium, Arial, sans-serif;color:var(--pc-ink-2);box-shadow:var(--pc-shadow-soft)}
+.cp-home-miniFeature b{display:block;color:var(--pc-ink);margin-bottom:4px}
+
+.cp-home-cards{margin-top:18px}
+
+
+/* Hero Play Now variant (blue) */
+.cp-btn-blue{background:#1a78c2!important;border-color:rgba(255,255,255,0.25)!important;}
+.cp-btn-blue .link-button_text__PoH2c{color:#ffffff!important;}
+.cp-btn-blue .link-button_outline__1volg{opacity:0.75;}
+.cp-btn-blue:hover{filter:brightness(1.06);}
+
+/* Subtle entrance animations (no JS dependency) */
+.cp-anim{
+  --d:0ms;
+  animation: cpFadeUp 520ms ease-out both;
+  animation-delay: var(--d);
+}
+@keyframes cpFadeUp{
+  from{opacity:0;transform:translateY(10px);}
+  to{opacity:1;transform:translateY(0);}
+}
+@media (prefers-reduced-motion: reduce){
+  .cp-anim{animation:none!important;}
+}
+
+/* Tidy hover lift for interactive cards */
+.cp-home-card, .feature-card_card__uPPhs, .cp-post{
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+.cp-home-card:hover, .feature-card_card__uPPhs:hover, .cp-post:hover{
+  transform: translateY(-1px);
+}
+@media (prefers-reduced-motion: reduce){
+  .cp-home-card, .feature-card_card__uPPhs, .cp-post{transition:none!important;}
+  .cp-home-card:hover, .feature-card_card__uPPhs:hover, .cp-post:hover{transform:none!important;}
+}
+
+/* "What's New" posts */
+.cp-posts{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:10px;
+  margin-top:12px;
+}
+.cp-post{
+  display:block;
+  text-decoration:none;
+  background:#ffffff;
+  border:2px solid rgba(188,211,228,0.90);
+  border-radius:18px;
+  padding:14px 14px;
+  box-shadow:var(--pc-shadow-soft);
+  color:var(--pc-ink-2);
+}
+.cp-postTop{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  align-items:center;
+  margin-bottom:6px;
+  font-family:Burbank Small Medium, Arial, sans-serif;
+}
+.cp-postTag{
+  display:inline-flex;
+  align-items:center;
+  padding:4px 10px;
+  border-radius:999px;
+  background:#ff9a00;
+  color:#1a3c5e;
+  border:2px solid rgba(0,0,0,0.12);
+  font-size:0.95rem;
+}
+.cp-postDate{
+  color:var(--pc-muted);
+  opacity:0.9;
+  font-size:0.95rem;
+}
+.cp-postTitle{
+  font-family:CCComicrazy, Arial, sans-serif;
+  text-transform:uppercase;
+  letter-spacing:0.6px;
+  color:#2e6faa;
+  margin:2px 0 6px;
+}
+.cp-postExcerpt{
+  font-family:Burbank Small Medium, Arial, sans-serif;
+  color:var(--pc-ink-2);
+  line-height:1.2;
+}
+.cp-postMore{
+  margin-top:10px;
+  font-family:Burbank Small Medium, Arial, sans-serif;
+  color:#2e6faa;
+  text-decoration:underline;
+  opacity:0.95;
+}
+@media (min-width: 820px){
+  .cp-posts{grid-template-columns:1fr;}
+}
+
+
+/* Bottom feature cards (homepage) – match Parent Center card language */
+.cp-home-cards .feature-card_card__uPPhs{
+  border-radius:22px;
+  border:2px solid rgba(188,211,228,0.75);
+  box-shadow:var(--pc-shadow);
+  overflow:hidden;
+}

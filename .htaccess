@@ -1,0 +1,36 @@
+RewriteEngine On
+Options -MultiViews
+
+# /manage_penguin/studio -> /manage_penguin/studio.php
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.+?)/?$ $1.php [L,QSA]
+
+# Disable directory browsing
+Options -Indexes
+Options -MultiViews
+
+# Custom error pages in /error-pages
+ErrorDocument 400 /error-pages/400.php
+ErrorDocument 401 /error-pages/401.php
+ErrorDocument 403 /error-pages/403.php
+ErrorDocument 404 /error-pages/404.php
+ErrorDocument 408 /error-pages/408.php
+ErrorDocument 410 /error-pages/410.php
+ErrorDocument 429 /error-pages/429.php
+ErrorDocument 500 /error-pages/500.php
+ErrorDocument 502 /error-pages/502.php
+ErrorDocument 504 /error-pages/504.php
+ErrorDocument 503 /error-pages/maintenance.php
+ErrorDocument 501 /error-pages/not_ready.php
+
+# Block /yukon-server entirely
+RewriteRule ^yukon-server(/.*)?$ - [F,L]
+
+# Block /yukon except /yukon/media/*
+RewriteCond %{REQUEST_URI} ^/yukon [NC]
+RewriteCond %{REQUEST_URI} !^/yukon/media/ [NC]
+RewriteRule ^yukon(/.*)?$ - [F,L]

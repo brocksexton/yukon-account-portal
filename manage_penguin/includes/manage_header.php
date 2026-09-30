@@ -39,6 +39,7 @@ $u = function(string $path) use ($origin, $h): string {
   <title><?php echo e($pageTitle); ?></title>
 
   <!-- Manage My Penguin styles (self-contained; avoids fragile hashed CSS refs) -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;600;700;800;900&display=swap"/>
   <link rel="stylesheet" href="<?php echo $h('manage_penguin/css/cp-custom.css'); ?>"/>
   <link rel="stylesheet" href="<?php echo $h('manage_penguin/manage.css'); ?>"/>
 </head>

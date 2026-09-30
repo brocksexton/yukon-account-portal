@@ -1,27 +1,9 @@
-/* --- Fonts (pulled from the existing CPJourney bundles in /_next/static/media/) --- */
-@font-face{
-  font-family:"Burbank Small Medium";
-  src:url("../../_next/static/media/BurbankSmall-Medium.bb8ea9fb.woff") format("woff"),
-      url("../../_next/static/media/BurbankSmall-Medium.2b6058ec.ttf") format("truetype");
-  font-weight:500;
-  font-style:normal;
-  font-display:swap;
-}
-@font-face{
-  font-family:"Burbank Small";
-  src:url("../../_next/static/media/Burbank-Small.887fc8ca.woff") format("woff"),
-      url("../../_next/static/media/Burbank-Small.a6952aab.ttf") format("truetype");
-  font-weight:400;
-  font-style:normal;
-  font-display:swap;
-}
-@font-face{
-  font-family:"CCComicrazy";
-  src:url("../../_next/static/media/CCComicrazy_Italic.50c23fbd.ttf") format("truetype");
-  font-weight:400;
-  font-style:italic;
-  font-display:swap;
-}
+@import url("https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;600;700;800;900&display=swap");
+/* --- Fonts ---
+   The original build used the Burbank Small and CCComicrazy fonts, which are commercial
+   and not included. The font stacks in this file fall back to Nunito and Bangers
+   (Google Fonts, SIL OFL). If you hold licences for the originals, add @font-face
+   rules for "Burbank Small Medium", "Burbank Small" and "CCComicrazy" here. */
 
 /* manage_penguin/assets/studio/studio.css
    Outfit Studio v2 – stage-based (Puffle Modifier-inspired) */
@@ -80,12 +62,12 @@
   backdrop-filter: blur(10px);
 }
 .os-tools::before{content:"";display:block;position:absolute;inset:0;border-radius:18px;pointer-events:none;}
-.os-kicker{font-size:14px;color:rgba(255,255,255,0.78); letter-spacing:.4px; font-family:"Burbank Small Medium", Arial, sans-serif;}
-.os-title{margin:2px 0 6px; font-size:48px; line-height:1.02; color:#fff; font-family:CCComicrazy, "Burbank Small Medium", Arial, sans-serif; letter-spacing:0.3px;}
-.os-sub{max-width:700px; color:rgba(255,255,255,0.80); font-size:14px; font-family:"Burbank Small Medium", Arial, sans-serif;}
+.os-kicker{font-size:14px;color:rgba(255,255,255,0.78); letter-spacing:.4px; font-family:"Burbank Small Medium", Nunito, Arial, sans-serif;}
+.os-title{margin:2px 0 6px; font-size:48px; line-height:1.02; color:#fff; font-family:CCComicrazy, Bangers, "Burbank Small Medium", Nunito, Arial, sans-serif; letter-spacing:0.3px;}
+.os-sub{max-width:700px; color:rgba(255,255,255,0.80); font-size:14px; font-family:"Burbank Small Medium", Nunito, Arial, sans-serif;}
 
 /* If your Parent Center sets body bg, this will blend. Otherwise provide fallback. */
-body{background:linear-gradient(180deg,var(--os-blue-700),var(--os-blue-900)) fixed; font-family:"Burbank Small Medium", Arial, sans-serif;}
+body{background:linear-gradient(180deg,var(--os-blue-700),var(--os-blue-900)) fixed; font-family:"Burbank Small Medium", Nunito, Arial, sans-serif;}
 
 .os-tools{
   position:relative;
@@ -114,7 +96,7 @@ body{background:linear-gradient(180deg,var(--os-blue-700),var(--os-blue-900)) fi
   color:#fff;
   padding:8px 12px;
   border-radius:999px;
-  font-family:"Burbank Small Medium", Arial, sans-serif;
+  font-family:"Burbank Small Medium", Nunito, Arial, sans-serif;
   font-size:14px;
   line-height:1;
   outline:none;
@@ -130,7 +112,7 @@ body{background:linear-gradient(180deg,var(--os-blue-700),var(--os-blue-900)) fi
   border-radius:999px;
   padding:10px 14px;
   color:#fff;
-  font-family:"Burbank Small Medium", Arial, sans-serif;
+  font-family:"Burbank Small Medium", Nunito, Arial, sans-serif;
   cursor:pointer;
   transition:transform .08s ease, background .15s ease;
 }
@@ -727,7 +709,7 @@ body[data-inv="grid3"] .os-item{
   min-height: 156px;
 }
 .os-itemName{
-  font-family: "Burbank Small Medium", system-ui, -apple-system, Segoe UI, Arial, sans-serif;
+  font-family: "Burbank Small Medium", Nunito, system-ui, -apple-system, Segoe UI, Arial, sans-serif;
   font-weight: 900;
   font-size: 14px;
   letter-spacing: .2px;

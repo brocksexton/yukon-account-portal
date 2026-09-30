@@ -243,7 +243,7 @@ function home_news_posts(): array {
   <div class="row g-0">
     <div class="col-12 col-lg-2.4 p-0">
       <div class="feature-card_card__uPPhs">
-        <div class="feature-card_left__QM9QG"><img src="_next/about3c22.webp" alt="About" style="width:100%;height:auto;max-width:100%"/></div>
+        <div class="feature-card_left__QM9QG"><img src="/manage_penguin/assets/blue_penguin_waving.png" alt="About" style="width:100%;height:auto;max-width:100%"/></div>
         <div class="feature-card_right__X0gx3">
           <h3 class="feature-card_heading__R5fVX"><?php echo $user ? 'Your Community' : 'Invite Codes'; ?></h3>
           <div class="feature-card_body__EED8H">
@@ -264,7 +264,7 @@ function home_news_posts(): array {
 
     <div class="col-12 col-lg-2.4 p-0">
       <div class="feature-card_card__uPPhs">
-        <div class="feature-card_left__QM9QG"><img src="_next/activities591f.webp" alt="Manage" style="width:100%;height:auto;max-width:100%"/></div>
+        <div class="feature-card_left__QM9QG"><img src="/manage_penguin/assets/tourguide_stand_withpenguin.png" alt="Manage" style="width:100%;height:auto;max-width:100%"/></div>
         <div class="feature-card_right__X0gx3">
           <h3 class="feature-card_heading__R5fVX">Manage My Penguin</h3>
           <div class="feature-card_body__EED8H">View your penguin, coins, outfit, and account settings.</div>
@@ -275,7 +275,7 @@ function home_news_posts(): array {
 
     <div class="col-12 col-lg-2.4 p-0">
       <div class="feature-card_card__uPPhs">
-        <div class="feature-card_left__QM9QG"><img src="_next/parties56f4.webp" alt="Play" style="width:100%;height:auto;max-width:100%"/></div>
+        <div class="feature-card_left__QM9QG"><img src="/manage_penguin/assets/rookie_wingsup.png" alt="Play" style="width:100%;height:auto;max-width:100%"/></div>
         <div class="feature-card_right__X0gx3">
           <h3 class="feature-card_heading__R5fVX">Play Now</h3>
           <div class="feature-card_body__EED8H">Jump into the island and relive your childhood. Waddle on!</div>
@@ -286,7 +286,7 @@ function home_news_posts(): array {
 
     <div class="col-12 col-lg-2.4 p-0">
       <div class="feature-card_card__uPPhs">
-        <div class="feature-card_left__QM9QG"><img src="_next/community1266.webp" alt="Safety" style="width:100%;height:auto;max-width:100%"/></div>
+        <div class="feature-card_left__QM9QG"><img src="/parent_center/assets/pc/parents-icon.png" alt="Safety" style="width:100%;height:auto;max-width:100%"/></div>
         <div class="feature-card_right__X0gx3">
           <h3 class="feature-card_heading__R5fVX">Parent Center</h3>
           <div class="feature-card_body__EED8H">Tools for linked accounts, safety, and a more family-friendly experience.</div>

@@ -37,16 +37,9 @@ $u = function(string $path) use ($origin, $h): string {
   <link rel="shortcut icon" href="<?php echo e($u('favicon.ico')); ?>"/>
   <title><?php echo e($pageTitle); ?></title>
 
-  <!-- Theme CSS (from CPJourney mirror) -->
-  <link rel="stylesheet" href="<?php echo e($u('_next/static/css/1ee9a979f47073eb.css')); ?>"/>
-  <link rel="stylesheet" href="<?php echo e($u('_next/static/css/3ab61228b64fe6a5.css')); ?>"/>
-  <link rel="stylesheet" href="<?php echo e($u('_next/static/css/49ac20025ca14b51.css')); ?>"/>
-  <link rel="stylesheet" href="<?php echo e($u('_next/static/css/5185297529824f4e.css')); ?>"/>
-  <link rel="stylesheet" href="<?php echo e($u('_next/static/css/68d67f148b6a9c7f.css')); ?>"/>
-  <link rel="stylesheet" href="<?php echo e($u('_next/static/css/77bfbc40d4308641.css')); ?>"/>
-  <link rel="stylesheet" href="<?php echo e($u('_next/static/css/b0189531fb64fc75.css')); ?>"/>
-  <link rel="stylesheet" href="<?php echo e($u('_next/static/css/bde96ae522c14e4d.css')); ?>"/>
-  <link rel="stylesheet" href="<?php echo e($u('_next/static/css/e951524e14995f5c.css')); ?>"/>
+  <!-- Base theme: Bootstrap 5 (reset, grid, utilities) + css/theme.css -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" crossorigin="anonymous"/>
+  <link rel="stylesheet" href="<?php echo e($u('css/theme.css')); ?>"/>
 
   <link rel="stylesheet" href="<?php echo e($u('css/cp-custom.css')); ?>"/>
   <link rel="stylesheet" href="<?php echo e($u('parent_center/parent.css')); ?>"/>

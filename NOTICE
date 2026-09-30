@@ -1,0 +1,38 @@
+Yukon Account Portal - notice about styles and images
+=====================================================
+
+This project was never a public website. It was a personal project for trying
+out ideas, shared so others can read and reuse the code.
+
+What the MIT License (LICENSE) covers
+-------------------------------------
+The source code: PHP, JavaScript, SQL and the build scripts.
+
+What it does NOT cover
+----------------------
+The look of the site is deliberately modelled on Club Penguin. The following
+are NOT licensed for use on the public web and remain the property of their
+owners:
+
+- the stylesheets (*.css), which imitate Club Penguin's visual design
+- every image in the repository (*.png, *.jpg, *.webp, *.svg, *.ico),
+  including penguin, puffle and character art, backgrounds, icons and logos,
+  and the screenshots in docs/screenshots
+- the Outfit Studio winter scene in manage_penguin/assets/studio/scenes/,
+  which is fan art signed "Sorian"
+
+Club Penguin and its characters, art, logos and names are trademarks and
+copyrights of Disney. This project is not affiliated with, endorsed by or
+connected to Disney, Club Penguin, or the Yukon project by wizguin.
+
+If you build something from this code, replace the styles and images with
+your own before putting it on the internet.
+
+Not included
+------------
+- The Yukon client media (clothing, puffle and room art, crumbs JSON) comes
+  from your own copy of the wizguin/yukon client assets.
+- The original build borrowed the compiled CSS and fonts (Burbank Small,
+  CCComicrazy) from another private server's public website. Those files
+  belong to their owners and are not part of this repository; css/theme.css
+  is an original replacement.

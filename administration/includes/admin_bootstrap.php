@@ -4,6 +4,11 @@
 
 require_once __DIR__ . '/../../includes/bootstrap.php';
 
+// Optional server-control settings (see administration/config/server_control.php).
+if (is_file(__DIR__ . '/../config/server_control.php')) {
+    require_once __DIR__ . '/../config/server_control.php';
+}
+
 // --- Admin config defaults ---
 if (!defined('ADMIN_MIN_RANK')) {
     // Rank threshold for accessing the administration portal.
@@ -34,7 +39,8 @@ function admin_can_give_all_items(?array $u = null): bool {
 // --- Server control (optional, local-only by default) ---
 if (!defined('ADMIN_ALLOW_SERVER_CONTROL')) {
     // Enable the Administration "Server" page (view logs, start/stop) - strongly recommended local-only.
-    define('ADMIN_ALLOW_SERVER_CONTROL', true);
+    // Off by default: it runs npm commands in your yukon-server folder.
+    define('ADMIN_ALLOW_SERVER_CONTROL', false);
 }
 if (!defined('ADMIN_SERVER_CONTROL_MIN_RANK')) {
     // Extra rank gate for server controls (start/stop/restart/logs).

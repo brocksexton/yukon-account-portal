@@ -1,0 +1,15 @@
+# Local configuration: copy includes/config.example.php to includes/config.php
+/includes/config.php
+
+# Things you add locally but should not commit (see README)
+/yukon/
+/yukon-server/
+/_next/
+node_modules/
+
+# Static demo build output (published to the gh-pages branch instead)
+/scripts/static-demo/out/
+
+*.log
+.DS_Store
+Thumbs.db

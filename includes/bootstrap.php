@@ -1,4 +1,8 @@
 <?php
+if (!is_file(__DIR__ . '/config.php')) {
+    http_response_code(500);
+    die('Missing includes/config.php. Copy includes/config.example.php to includes/config.php and edit it.');
+}
 require_once __DIR__ . '/config.php';
 
 // Secure-ish session defaults

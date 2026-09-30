@@ -1,0 +1,336 @@
+
+/* manage_penguin/studio.css
+   Outfit Studio: dedicated page styles (overrides on top of manage.css) */
+
+.mp-studioShell{
+  display:grid;
+  grid-template-columns: 520px 1fr;
+  gap:18px;
+  align-items:start;
+  margin-top:16px;
+}
+@media (max-width: 1100px){
+  .mp-studioShell{grid-template-columns:1fr; }
+}
+
+.mp-studioLeftPane{ position:relative; }
+.mp-studioCard{ padding:18px; }
+.mp-browserCard{ padding:16px; }
+
+.mp-studioTop{
+  display:flex;
+  justify-content:space-between;
+  gap:14px;
+  align-items:flex-start;
+}
+.mp-studioTopActions{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+}
+.mp-modeBar{
+  margin-top:14px;
+  display:flex;
+  gap:10px;
+  background:rgba(255,255,255,0.55);
+  border:1px solid rgba(180,210,235,0.9);
+  border-radius:999px;
+  padding:6px;
+  width:fit-content;
+}
+.mp-modeBtn{
+  border:0;
+  background:transparent;
+  padding:8px 12px;
+  border-radius:999px;
+  font-weight:900;
+  color:var(--cp-ink, #0b2b45);
+  cursor:pointer;
+}
+.mp-modeBtn.is-active{
+  background:#fff;
+  box-shadow:0 6px 16px rgba(0,0,0,0.08);
+}
+
+.mp-previewWrap{ margin-top:14px; }
+.mp-panelTitle{
+  font-weight:1000;
+  letter-spacing:0.04em;
+  font-size:12px;
+  color:rgba(11,43,69,0.7);
+  margin-bottom:8px;
+  text-transform:uppercase;
+}
+.mp-avatar{
+  margin:0 auto;
+}
+.mp-avatarFrame{
+  position:relative;
+  width:100%;
+  height:100%;
+  border-radius:18px;
+  background:linear-gradient(180deg, rgba(255,255,255,0.85), rgba(250,252,255,0.55));
+  border:2px solid rgba(180,210,235,0.8);
+  overflow:hidden;
+  box-shadow:0 18px 38px rgba(0,0,0,0.10);
+}
+.mp-avatarBg{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  opacity:0.95;
+}
+.mp-avatarColor{
+  position:absolute;
+  left:50%;
+  top:54%;
+  width:68%;
+  transform:translate(-50%,-50%);
+  image-rendering:auto;
+}
+.mp-avatarLayer{
+  position:absolute;
+  left:50%;
+  top:54%;
+  width:68%;
+  transform:translate(-50%,-50%);
+}
+.mp-avatarFlag{
+  position:absolute;
+  left:14px;
+  top:14px;
+  width:68px;
+  height:68px;
+  border-radius:999px;
+  background:#fff;
+  border:2px solid rgba(0,0,0,0.08);
+  box-shadow:0 10px 24px rgba(0,0,0,0.12);
+  padding:6px;
+  object-fit:contain;
+}
+
+.mp-previewCompare .mp-compareStage{
+  position:relative;
+  width:100%;
+  max-width:380px;
+  margin:0 auto;
+}
+.mp-compareBase, .mp-compareTop{
+  position:absolute;
+  inset:0;
+}
+.mp-compareTop{
+  clip-path: inset(0 50% 0 0);
+}
+.mp-compareSlider{
+  width:100%;
+  margin-top:14px;
+}
+.mp-compareLabels{
+  display:flex;
+  justify-content:space-between;
+  font-weight:900;
+  color:rgba(11,43,69,0.7);
+  margin-top:6px;
+}
+
+.mp-equipGrid{
+  margin-top:14px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+@media (max-width: 1100px){
+  .mp-equipGrid{ grid-template-columns:1fr 1fr; }
+}
+.mp-equipTile{
+  position:relative;
+  display:flex;
+  gap:10px;
+  align-items:center;
+  padding:10px;
+  border-radius:14px;
+  background:rgba(255,255,255,0.65);
+  border:1px solid rgba(180,210,235,0.9);
+}
+.mp-equipIcon{
+  width:46px;height:46px;border-radius:12px;
+  background:#fff;
+  display:flex;align-items:center;justify-content:center;
+  border:1px solid rgba(0,0,0,0.06);
+}
+.mp-equipIcon img{ width:38px;height:38px; object-fit:contain; }
+.mp-equipText{ line-height:1.1; }
+.mp-equipSlot{ font-weight:1000; }
+.mp-equipVal{ font-weight:900; color:rgba(11,43,69,0.75); margin-top:2px; }
+.mp-unequip{
+  position:absolute;
+  right:8px; top:8px;
+  width:26px;height:26px;
+  border-radius:999px;
+  border:0;
+  background:rgba(0,0,0,0.06);
+  cursor:pointer;
+  font-weight:1000;
+}
+
+.mp-studioFooter{
+  margin-top:14px;
+  display:flex;
+  gap:10px;
+  align-items:center;
+  flex-wrap:wrap;
+}
+.mp-saveNote{ font-weight:900; color:rgba(11,43,69,0.7); }
+
+.mp-browserHeader{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:12px;
+  flex-wrap:wrap;
+}
+.mp-filterChips{ display:flex; gap:8px; flex-wrap:wrap; }
+.mp-chip{
+  border:1px solid rgba(180,210,235,0.9);
+  background:rgba(255,255,255,0.6);
+  border-radius:999px;
+  padding:8px 12px;
+  font-weight:1000;
+  cursor:pointer;
+}
+.mp-chip.is-active{
+  background:#fff;
+  box-shadow:0 10px 24px rgba(0,0,0,0.08);
+}
+.mp-browserTools{ display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
+.mp-browserBar{
+  margin-top:12px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+}
+.mp-browserBar--bottom{
+  margin-top:14px;
+}
+.mp-grid{
+  margin-top:12px;
+  display:grid;
+  /* Readability-first: keep titles legible */
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap:12px;
+}
+@media (max-width: 1400px){ .mp-grid{ grid-template-columns:repeat(3,1fr);} }
+@media (max-width: 900px){ .mp-grid{ grid-template-columns:repeat(2,1fr);} }
+
+.mp-card{
+  border-radius:18px;
+  background:rgba(255,255,255,0.72);
+  border:1px solid rgba(180,210,235,0.9);
+  padding:12px;
+  cursor:pointer;
+  position:relative;
+  overflow:hidden;
+  min-height:150px;
+}
+.mp-card:hover{ transform:translateY(-2px); box-shadow:0 18px 36px rgba(0,0,0,0.12); }
+.mp-card.is-selected{
+  outline:3px solid rgba(26,145,255,0.35);
+}
+.mp-cardImg{
+  display:flex;align-items:center;justify-content:center;
+  height:104px;
+}
+.mp-cardImg img{ max-width:90px; max-height:90px; object-fit:contain; }
+.mp-cardName{ font-weight:1000; margin-top:8px; text-align:center; }
+
+/* ID becomes a subtle corner tag (optional, not dominating the tile) */
+.mp-cardId{
+  position:absolute;
+  right:10px;
+  bottom:10px;
+  margin:0;
+  font-size:11px;
+  font-weight:1000;
+  color:rgba(11,43,69,0.7);
+  background:rgba(255,255,255,0.85);
+  border:1px solid rgba(180,210,235,0.9);
+  border-radius:999px;
+  padding:3px 8px;
+}
+
+.mp-skel{
+  grid-column:1/-1;
+  padding:18px;
+  border-radius:18px;
+  border:1px dashed rgba(180,210,235,0.9);
+  background:rgba(255,255,255,0.55);
+  font-weight:900;
+}
+
+
+/* ===== v6 readability + avatar scale tweaks ===== */
+
+/* Inventory: make item names actually readable (2-line clamp, no forced nowrap) */
+.mp-cardName{
+  font-size:15px !important;
+  line-height:1.2 !important;
+  letter-spacing:0 !important;
+  white-space:normal !important;
+  overflow:hidden !important;
+  display:-webkit-box !important;
+  -webkit-box-orient:vertical !important;
+  -webkit-line-clamp:2 !important;
+  min-height:2.5em; /* reserve space for 2 lines */
+  text-align:center !important;
+  padding:0 6px !important;
+}
+.mp-cardId{
+  font-size:11px !important;
+  margin:0 !important;
+}
+
+/* If any global styles are forcing ellipsis on generic card text, override */
+.mp-cardName, .mp-cardId{ text-overflow:clip !important; }
+
+/* Equipped pill: smaller + tucked, less intrusive */
+.mp-card .mp-equippedPill,
+.mp-card .mp-badgeEquipped{
+  font-size:11px !important;
+  padding:3px 8px !important;
+  border-radius:999px !important;
+  box-shadow:0 6px 14px rgba(0,0,0,0.08) !important;
+}
+
+/* Stage avatar: enlarge and nudge down to match playercard proportions */
+.os-avatarInner{
+  transform-origin:50% 100% !important;
+  /* Slightly larger + a touch lower for better in-game proportions */
+  transform:translateY(24px) scale(1.24) !important;
+}
+.os-layer{
+  /* slightly larger paper stack */
+  width:82% !important;
+  left:50% !important;
+  transform:translateX(-50%) !important;
+}
+.os-colour{
+  width:82% !important;
+}
+
+/* Stage label (Preview/Current): keep visible even after avatar scale */
+.os-avatarSlot{ position:absolute; }
+.os-avatarLabel{
+  position:absolute !important;
+  top:10px !important;
+  left:50% !important;
+  transform:translateX(-50%) !important;
+  z-index:6 !important;
+  pointer-events:none !important;
+}
+

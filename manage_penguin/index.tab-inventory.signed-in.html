@@ -1,0 +1,489 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head><script>window.__CP_DEMO__={"base":"/yukon-account-portal","view":"in","key":"/manage_penguin/index.php?tab=inventory","repoUrl":"https://github.com/brocksexton/yukon-account-portal","counterpart":{"guest":"login.html","in":"manage_penguin/index.tab-inventory.signed-in.html"}}</script><script src="/yukon-account-portal/__demo/shim.js"></script>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <link rel="shortcut icon" href="/yukon-account-portal/manage_penguin/favicon.ico"/>
+  <title>Club Penguin</title>
+
+  <!-- Base theme: Bootstrap 5 (reset, grid, utilities) + css/theme.css (layout, header, footer, buttons) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" crossorigin="anonymous"/>
+  <link rel="stylesheet" href="/yukon-account-portal/css/theme.css"/>
+
+  <!-- Your small overrides -->
+  <link rel="stylesheet" href="/yukon-account-portal/css/cp-custom.css"/>
+</head>
+<body>
+<div class="layout_layout__JVHGL">
+  <div class="layout_header__xfrqJ">
+    <div class="layout_inner__ZkDmw">
+      <div class="layout_logo___NFT7">
+        <a href="/yukon-account-portal/manage_penguin/index.signed-in.html" class="cp-logoText" aria-label="Club Penguin">
+          <span class="cp-logoLine1">CLUB</span>
+          <span class="cp-logoLine2">PENGUIN</span>
+        </a>
+      </div>
+
+      <div class="layout_menu__NFJJt">
+        <div class="layout_hamburger__meLMb">
+          <div class="layout_hamburgerIcon__ASGjU" id="hamburger"><span></span><span></span><span></span></div>
+        </div>
+
+        <div class="layout_links__MWmdl">
+          <!-- Use root‑relative paths so links work from nested directories like /manage_penguin/ -->
+          <div class="layout_link__qiNnQ"><a href="/yukon-account-portal/index.signed-in.html" class="mx-3">Home</a></div>
+          <div class="layout_link__qiNnQ"><a href="/yukon-account-portal/manage_penguin/index.signed-in.html" class="mx-3">Manage My Penguin</a></div>
+          <div class="layout_link__qiNnQ"><a href="/yukon-account-portal/parent_center/dashboard.signed-in.html" class="mx-3">Parent Center</a></div>
+                      <div class="layout_link__qiNnQ"><a href="/yukon-account-portal/index.html" class="mx-3">Logout</a></div>
+                            </div>
+
+        <div class="layout_mobileMenu__9Koe8" id="mobileMenu">
+          <div class="layout_mobileLinks__zxSHj">
+            <!-- Root‑relative paths for nested pages (e.g. /manage_penguin/) -->
+            <a href="/yukon-account-portal/index.signed-in.html">Home</a>
+            <a href="/yukon-account-portal/manage_penguin/index.signed-in.html">Manage My Penguin</a>
+            <a href="/yukon-account-portal/parent_center/dashboard.signed-in.html">Parent Center</a>
+                          <a href="/yukon-account-portal/index.html">Logout</a>
+                                  </div>
+        </div>
+
+        <div class="layout_announcements__GS0HL">
+          <div class="cp-announce">Waddle Around, and Make Friends!</div>
+        </div>
+      </div>
+
+      <div class="layout_buttons__NZGWl">
+                  <div class="cp-userChip">
+            <a class="cp-userChipLink" href="/yukon-account-portal/manage_penguin/index.signed-in.html" aria-label="Open your profile">
+              <span class="cp-userChipAvatarWrap">
+                <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="50"
+  height="50"
+  viewBox="0 0 50 50"
+  aria-hidden="true"
+  role="img"
+>
+    <defs>
+    <clipPath id="clip_1_50_052b18">
+      <circle cx="25" cy="25" r="25" />
+    </clipPath>
+  </defs>
+  
+  <g clip-path="url(#clip_1_50_052b18)">
+
+          <image href="/yukon-account-portal/yukon/assets/media/clothing/photos/932.png" x="0" y="0" width="50" height="50" />
+    
+    <!-- Penguin stack -->
+    <g transform="translate(-32 -25) scale(2.3)">
+
+      <!-- coloured base -->
+      <image href="/yukon-account-portal/assets/img/colours/5.png" x="0" y="0" width="50" height="50" />
+
+      <!-- top overlay (never tinted) -->
+      <image href="/yukon-account-portal/assets/img/penguin_transparent.png" x="0" y="0" width="50" height="50" />
+
+      <!-- clothing paper layers -->
+                        <image href="/yukon-account-portal/yukon/assets/media/clothing/paper/365.png" x="0" y="0" width="50" height="50" />
+                                <image href="/yukon-account-portal/yukon/assets/media/clothing/paper/243.png" x="0" y="0" width="50" height="50" />
+                                <image href="/yukon-account-portal/yukon/assets/media/clothing/paper/179.png" x="0" y="0" width="50" height="50" />
+                                <image href="/yukon-account-portal/yukon/assets/media/clothing/paper/125.png" x="0" y="0" width="50" height="50" />
+                                <image href="/yukon-account-portal/yukon/assets/media/clothing/paper/413.png" x="0" y="0" width="50" height="50" />
+                            
+    </g>
+
+    
+  </g>
+</svg>
+              </span>
+              <span class="cp-userChipText">
+                <span class="cp-userChipName">DemoParent</span>
+                <span class="cp-userChipSub">My Penguin</span>
+              </span>
+            </a>
+          </div>
+              </div>
+    </div>
+  </div>
+
+  <div class="container p-4 container_container__DpiRT">
+    <div class="cp-container-top" style="background-image:url(/yukon-account-portal/manage_penguin/container-top.png)"></div>
+
+    <link rel="stylesheet" href="/yukon-account-portal/manage_penguin/manage.css"/>
+
+<div class="mp-wrap">
+  <div class="mp-hero cp-card cp-card--wide">
+    <div class="mp-heroLeft">
+      <img class="mp-heroArt" src="/yukon-account-portal/manage_penguin/assets/blue_penguin_waving.png" alt="Mascot"/>
+      <div style="min-width:0">
+        <h1 class="mp-heroTitle">Manage My Penguin</h1>
+        <div class="mp-heroSub">
+          <span style="display:inline-flex;align-items:center;gap:10px;flex-wrap:wrap">
+            <span>Welcome back, <strong>DemoParent</strong></span>
+            <span class="cp-chip">Player</span>
+            <span class="cp-chip">Inventory: 33</span>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="cp-actions">
+      <a class="cp-btn cp-btn--secondary" href="/yukon-account-portal/parent_center/dashboard.signed-in.html">Parent Center</a>
+      <a class="cp-btn cp-btn--primary" href="#" data-demo-off="The game client is not part of this demo.">Play</a>
+    </div>
+  </div>
+
+  
+  <div class="mp-tabs">
+    <a class="mp-tab " href="/yukon-account-portal/manage_penguin/index.tab-overview.signed-in.html">Overview</a>
+    <a class="mp-tab is-active" href="/yukon-account-portal/manage_penguin/index.tab-inventory.signed-in.html">Inventory</a>
+    <!-- My Outfits is now a tab embedded on the dashboard -->
+    <a class="mp-tab " href="/yukon-account-portal/manage_penguin/index.tab-my_outfits.signed-in.html">My Outfits</a>
+    <!-- Studio remains its own page (full‑screen builder) -->
+    <a class="mp-tab" href="/yukon-account-portal/manage_penguin/studio.signed-in.html">Studio</a>
+    <!-- Commissions tab displays commission history inline -->
+    <a class="mp-tab " href="/yukon-account-portal/manage_penguin/index.tab-commissions.signed-in.html">Commissions</a>
+    <a class="mp-tab " href="/yukon-account-portal/manage_penguin/index.tab-security.signed-in.html">Security</a>
+  </div>
+
+  
+
+      
+<div class="cp-card">
+  <h2 class="cp-h2">Inventory</h2>
+  <div class="cp-subtitle">Showing 1–33 of 33 items.</div>
+
+  <div class="mp-invTools">
+    <input id="invSearch" class="cp-input" type="search" placeholder="Search by name or ID..." autocomplete="off">
+    <select id="invSlot" class="cp-input">
+      <option value="all">All</option>
+              <option value="color">Color</option>
+              <option value="head">Head</option>
+              <option value="face">Face</option>
+              <option value="neck">Neck</option>
+              <option value="body">Body</option>
+              <option value="hand">Hand</option>
+              <option value="feet">Feet</option>
+              <option value="photo">Photo</option>
+              <option value="flag">Flag</option>
+            <option value="unknown">Unknown type</option>
+    </select>
+  </div>
+
+  <div id="invGrid" class="mp-itemGrid" style="margin-top:14px">
+          <div class="mp-item mp-itemStatic" data-item-id="5" data-slot="color" data-name="red">
+        <img src="/yukon-account-portal/yukon/assets/media/clothing/icon/240/5.png" onerror="this.style.opacity=0.25" alt="Red">
+        <div class="mp-itemMeta">
+          <div class="mp-itemName">Red</div>
+          <div class="mp-itemId">#5</div>
+        </div>
+      </div>
+          <div class="mp-item mp-itemStatic" data-item-id="125" data-slot="face" data-name="aviator sunglasses">
+        <img src="/yukon-account-portal/yukon/assets/media/clothing/icon/240/125.png" onerror="this.style.opacity=0.25" alt="Aviator Sunglasses">
+        <div class="mp-itemMeta">
+          <div class="mp-itemName">Aviator Sunglasses</div>
+          <div class="mp-itemId">#125</div>
+        </div>
+      </div>
+          <div class="mp-item mp-itemStatic" data-item-id="166" data-slot="neck" data-name="green bowtie">
+        <img src="/yukon-account-portal/yukon/assets/media/clothing/icon/240/166.png" onerror="this.style.opacity=0.25" alt="Green Bowtie">
+        <div class="mp-itemMeta">
+          <div class="mp-itemName">Green Bowtie</div>
+          <div class="mp-itemId">#166</div>
+        </div>
+      </div>
+          <div class="mp-item mp-itemStatic" data-item-id="179" data-slot="neck" data-name="blue scarf">
+        <img src="/yukon-account-portal/yukon/assets/media/clothing/icon/240/179.png" onerror="this.style.opacity=0.25" alt="Blue Scarf">
+        <div class="mp-itemMeta">
+          <div class="mp-itemName">Blue Scarf</div>
+          <div class="mp-itemId">#179</div>
+        </div>
+      </div>
+          <div class="mp-item mp-itemStatic" data-item-id="214" data-slot="neck" data-name="black bowtie">
+        <img src="/yukon-account-portal/yukon/assets/media/clothing/icon/240/214.png" onerror="this.style.opacity=0.25" alt="Black Bowtie">
+        <div class="mp-itemMeta">
+          <div class="mp-itemName">Black Bowtie</div>
+          <div class="mp-itemId">#214</div>
+        </div>
+      </div>
+          <div class="mp-item mp-itemStatic" data-item-id="217" data-slot="body" data-name="cowboy vest">
+        <img src="/yukon-account-portal/yukon/assets/media/clothing/icon/240/217.png" onerror="this.style.opacity=0.25" alt="Cowboy Vest">
+        <div class="mp-itemMeta">
+          <div class="mp-itemName">Cowboy Vest</div>
+          <div class="mp-itemId">#217</div>
+        </div>
+      </div>
+          <div class="mp-item mp-itemStatic" data-item-id="220" data-slot="hand" data-name="hockey stick">
+        <img src="/yukon-account-portal/yukon/assets/media/clothing/icon/240/220.png" onerror="this.style.opacity=0.25" alt="Hockey Stick">
+        <div class="mp-itemMeta">
+          <div class="mp-itemName">Hockey Stick</div>
+          <div class="mp-itemId">#220</div>
+        </div>
+      </div>
+          <div class="mp-item mp-itemStatic" data-item-id="221" data-slot="body" data-name="black hoodie">
+        <img src="/yukon-account-portal/yukon/assets/media/clothing/icon/240/221.png" onerror="this.style.opacity=0.25" alt="Black Hoodie">
+        <div class="mp-itemMeta">
+          <div class="mp-itemName">Black Hoodie</div>
+          <div class="mp-itemId">#221</div>
+        </div>
+      </div>
+          <div class="mp-item mp-itemStatic" data-item-id="223" data-slot="body" data-name="green hoodie">
+        <img src="/yukon-account-portal/yukon/assets/media/clothing/icon/240/223.png" onerror="this.style.opacity=0.25" alt="Green Hoodie">
+        <div class="mp-itemMeta">
+          <div class="mp-itemName">Green Hoodie</div>
+          <div class="mp-itemId">#223</div>
+        </div>
+      </div>
+          <div class="mp-item mp-itemStatic" data-item-id="233" data-slot="hand" data-name="red electric guitar">
+        <img src="/yukon-account-portal/yukon/assets/media/clothing/icon/240/233.png" onerror="this.style.opacity=0.25" alt="Red Electric Guitar">
+        <div class="mp-itemMeta">
+          <div class="mp-itemName">Red Electric Guitar</div>
+          <div class="mp-itemId">#233</div>
+        </div>
+      </div>
+          <div class="mp-item mp-itemStatic" data-item-id="234" data-slot="hand" data-name="acoustic guitar">
+        <img src="/yukon-account-portal/yukon/assets/media/clothing/icon/240/234.png" onerror="this.style.opacity=0.25" alt="Acoustic Guitar">
+        <div class="mp-itemMeta">
+          <div class="mp-itemName">Acoustic Guitar</div>
+          <div class="mp-itemId">#234</div>
+        </div>
+      </div>
+          <div class="mp-item mp-itemStatic" data-item-id="243" data-slot="body" data-name="black parka">
+        <img src="/yukon-account-portal/yukon/assets/media/clothing/icon/240/243.png" onerror="this.style.opacity=0.25" alt="Black Parka">
+        <div class="mp-itemMeta">
+          <div class="mp-itemName">Black Parka</div>
+          <div class="mp-itemId">#243</div>
+        </div>
+      </div>
+          <div class="mp-item mp-itemStatic" data-item-id="294" data-slot="body" data-name="tuxedo">
+        <img src="/yukon-account-portal/yukon/assets/media/clothing/icon/240/294.png" onerror="this.style.opacity=0.25" alt="Tuxedo">
+        <div class="mp-itemMeta">
+          <div class="mp-itemName">Tuxedo</div>
+          <div class="mp-itemId">#294</div>
+        </div>
+      </div>
+          <div class="mp-item mp-itemStatic" data-item-id="352" data-slot="feet" data-name="black sneakers">
+        <img src="/yukon-account-portal/yukon/assets/media/clothing/icon/240/352.png" onerror="this.style.opacity=0.25" alt="Black Sneakers">
+        <div class="mp-itemMeta">
+          <div class="mp-itemName">Black Sneakers</div>
+          <div class="mp-itemId">#352</div>
+        </div>
+      </div>
+          <div class="mp-item mp-itemStatic" data-item-id="357" data-slot="feet" data-name="blue sneakers">
+        <img src="/yukon-account-portal/yukon/assets/media/clothing/icon/240/357.png" onerror="this.style.opacity=0.25" alt="Blue Sneakers">
+        <div class="mp-itemMeta">
+          <div class="mp-itemName">Blue Sneakers</div>
+          <div class="mp-itemId">#357</div>
+        </div>
+      </div>
+          <div class="mp-item mp-itemStatic" data-item-id="365" data-slot="feet" data-name="winter boots">
+        <img src="/yukon-account-portal/yukon/assets/media/clothing/icon/240/365.png" onerror="this.style.opacity=0.25" alt="Winter Boots">
+        <div class="mp-itemMeta">
+          <div class="mp-itemName">Winter Boots</div>
+          <div class="mp-itemId">#365</div>
+        </div>
+      </div>
+          <div class="mp-item mp-itemStatic" data-item-id="368" data-slot="feet" data-name="cowboy boots">
+        <img src="/yukon-account-portal/yukon/assets/media/clothing/icon/240/368.png" onerror="this.style.opacity=0.25" alt="Cowboy Boots">
+        <div class="mp-itemMeta">
+          <div class="mp-itemName">Cowboy Boots</div>
+          <div class="mp-itemId">#368</div>
+        </div>
+      </div>
+          <div class="mp-item mp-itemStatic" data-item-id="404" data-slot="head" data-name="tan cowboy hat">
+        <img src="/yukon-account-portal/yukon/assets/media/clothing/icon/240/404.png" onerror="this.style.opacity=0.25" alt="Tan Cowboy Hat">
+        <div class="mp-itemMeta">
+          <div class="mp-itemName">Tan Cowboy Hat</div>
+          <div class="mp-itemId">#404</div>
+        </div>
+      </div>
+          <div class="mp-item mp-itemStatic" data-item-id="413" data-slot="head" data-name="party hat">
+        <img src="/yukon-account-portal/yukon/assets/media/clothing/icon/240/413.png" onerror="this.style.opacity=0.25" alt="Party Hat">
+        <div class="mp-itemMeta">
+          <div class="mp-itemName">Party Hat</div>
+          <div class="mp-itemId">#413</div>
+        </div>
+      </div>
+          <div class="mp-item mp-itemStatic" data-item-id="428" data-slot="head" data-name="tour guide hat">
+        <img src="/yukon-account-portal/yukon/assets/media/clothing/icon/240/428.png" onerror="this.style.opacity=0.25" alt="Tour Guide Hat">
+        <div class="mp-itemMeta">
+          <div class="mp-itemName">Tour Guide Hat</div>
+          <div class="mp-itemId">#428</div>
+        </div>
+      </div>
+          <div class="mp-item mp-itemStatic" data-item-id="433" data-slot="head" data-name="black cowboy hat">
+        <img src="/yukon-account-portal/yukon/assets/media/clothing/icon/240/433.png" onerror="this.style.opacity=0.25" alt="Black Cowboy Hat">
+        <div class="mp-itemMeta">
+          <div class="mp-itemName">Black Cowboy Hat</div>
+          <div class="mp-itemId">#433</div>
+        </div>
+      </div>
+          <div class="mp-item mp-itemStatic" data-item-id="452" data-slot="head" data-name="viking helmet">
+        <img src="/yukon-account-portal/yukon/assets/media/clothing/icon/240/452.png" onerror="this.style.opacity=0.25" alt="Viking Helmet">
+        <div class="mp-itemMeta">
+          <div class="mp-itemName">Viking Helmet</div>
+          <div class="mp-itemId">#452</div>
+        </div>
+      </div>
+          <div class="mp-item mp-itemStatic" data-item-id="455" data-slot="head" data-name="pink viking helmet">
+        <img src="/yukon-account-portal/yukon/assets/media/clothing/icon/240/455.png" onerror="this.style.opacity=0.25" alt="Pink Viking Helmet">
+        <div class="mp-itemMeta">
+          <div class="mp-itemName">Pink Viking Helmet</div>
+          <div class="mp-itemId">#455</div>
+        </div>
+      </div>
+          <div class="mp-item mp-itemStatic" data-item-id="481" data-slot="head" data-name="headphones">
+        <img src="/yukon-account-portal/yukon/assets/media/clothing/icon/240/481.png" onerror="this.style.opacity=0.25" alt="Headphones">
+        <div class="mp-itemMeta">
+          <div class="mp-itemName">Headphones</div>
+          <div class="mp-itemId">#481</div>
+        </div>
+      </div>
+          <div class="mp-item mp-itemStatic" data-item-id="483" data-slot="head" data-name="blue earmuffs">
+        <img src="/yukon-account-portal/yukon/assets/media/clothing/icon/240/483.png" onerror="this.style.opacity=0.25" alt="Blue Earmuffs">
+        <div class="mp-itemMeta">
+          <div class="mp-itemName">Blue Earmuffs</div>
+          <div class="mp-itemId">#483</div>
+        </div>
+      </div>
+          <div class="mp-item mp-itemStatic" data-item-id="565" data-slot="flag" data-name="jolly roger flag">
+        <img src="/yukon-account-portal/yukon/assets/media/clothing/icon/240/565.png" onerror="this.style.opacity=0.25" alt="Jolly Roger Flag">
+        <div class="mp-itemMeta">
+          <div class="mp-itemName">Jolly Roger Flag</div>
+          <div class="mp-itemId">#565</div>
+        </div>
+      </div>
+          <div class="mp-item mp-itemStatic" data-item-id="901" data-slot="photo" data-name="heart background">
+        <img src="/yukon-account-portal/yukon/assets/media/clothing/icon/240/901.png" onerror="this.style.opacity=0.25" alt="Heart Background">
+        <div class="mp-itemMeta">
+          <div class="mp-itemName">Heart Background</div>
+          <div class="mp-itemId">#901</div>
+        </div>
+      </div>
+          <div class="mp-item mp-itemStatic" data-item-id="902" data-slot="photo" data-name="flower background">
+        <img src="/yukon-account-portal/yukon/assets/media/clothing/icon/240/902.png" onerror="this.style.opacity=0.25" alt="Flower Background">
+        <div class="mp-itemMeta">
+          <div class="mp-itemName">Flower Background</div>
+          <div class="mp-itemId">#902</div>
+        </div>
+      </div>
+          <div class="mp-item mp-itemStatic" data-item-id="903" data-slot="photo" data-name="nightime background">
+        <img src="/yukon-account-portal/yukon/assets/media/clothing/icon/240/903.png" onerror="this.style.opacity=0.25" alt="Nightime Background">
+        <div class="mp-itemMeta">
+          <div class="mp-itemName">Nightime Background</div>
+          <div class="mp-itemId">#903</div>
+        </div>
+      </div>
+          <div class="mp-item mp-itemStatic" data-item-id="904" data-slot="photo" data-name="clouds background">
+        <img src="/yukon-account-portal/yukon/assets/media/clothing/icon/240/904.png" onerror="this.style.opacity=0.25" alt="Clouds Background">
+        <div class="mp-itemMeta">
+          <div class="mp-itemName">Clouds Background</div>
+          <div class="mp-itemId">#904</div>
+        </div>
+      </div>
+          <div class="mp-item mp-itemStatic" data-item-id="932" data-slot="photo" data-name="winter background">
+        <img src="/yukon-account-portal/yukon/assets/media/clothing/icon/240/932.png" onerror="this.style.opacity=0.25" alt="Winter Background">
+        <div class="mp-itemMeta">
+          <div class="mp-itemName">Winter Background</div>
+          <div class="mp-itemId">#932</div>
+        </div>
+      </div>
+          <div class="mp-item mp-itemStatic" data-item-id="1164" data-slot="head" data-name="blue headphones">
+        <img src="/yukon-account-portal/yukon/assets/media/clothing/icon/240/1164.png" onerror="this.style.opacity=0.25" alt="Blue Headphones">
+        <div class="mp-itemMeta">
+          <div class="mp-itemName">Blue Headphones</div>
+          <div class="mp-itemId">#1164</div>
+        </div>
+      </div>
+          <div class="mp-item mp-itemStatic" data-item-id="4065" data-slot="body" data-name="blue tuxedo">
+        <img src="/yukon-account-portal/yukon/assets/media/clothing/icon/240/4065.png" onerror="this.style.opacity=0.25" alt="Blue Tuxedo">
+        <div class="mp-itemMeta">
+          <div class="mp-itemName">Blue Tuxedo</div>
+          <div class="mp-itemId">#4065</div>
+        </div>
+      </div>
+      </div>
+
+  <div class="mp-pager">
+          <span></span>
+    
+    <div class="mp-pageInfo">Page 1 of 1</div>
+
+          <span></span>
+      </div>
+</div>
+
+<script>
+(function(){
+  const search=document.getElementById('invSearch');
+  const slot=document.getElementById('invSlot');
+  const grid=document.getElementById('invGrid');
+
+  function apply(){
+    const q=(search.value||'').trim().toLowerCase();
+    const s=slot.value;
+    grid.querySelectorAll('.mp-itemStatic').forEach(el=>{
+      const name=el.dataset.name||'';
+      const id=el.dataset.itemId||'';
+      const slotv=el.dataset.slot||'unknown';
+      let ok=true;
+      if(s!=='all' && slotv!==s) ok=false;
+      if(ok && q) ok = name.includes(q) || id.includes(q);
+      el.style.display = ok ? '' : 'none';
+    });
+  }
+  search.addEventListener('input', apply);
+  slot.addEventListener('change', apply);
+})();
+</script>
+  
+  
+  
+  </div>
+
+  </div><!-- /container -->
+
+  <div class="layout_floatHack__GVfv2"></div>
+
+  <div class="layout_footerWrapper__mzB1N">
+    <div class="layout_footer__D7zM5">
+      <div class="layout_inner__ZkDmw">
+        <div class="layout_logo___NFT7">
+          <a href="/yukon-account-portal/manage_penguin/index.signed-in.html" class="cp-logoText cp-logoText--small" aria-label="Club Penguin">
+            <span class="cp-logoLine1">CLUB</span>
+            <span class="cp-logoLine2">PENGUIN</span>
+          </a>
+        </div>
+
+        <div class="layout_middle__6lX8s px-4">
+          <div class="layout_links__MWmdl">
+            <!-- Use root‑relative paths so links work from nested directories like /manage_penguin/ -->
+            <a href="/yukon-account-portal/index.signed-in.html">Home</a>
+            <a href="/yukon-account-portal/manage_penguin/index.signed-in.html">Manage My Penguin</a>
+            <a href="/yukon-account-portal/parent_center/dashboard.signed-in.html">Parent Center</a>
+            <a href="/yukon-account-portal/manage.signed-in.html">Login</a>
+            <a href="#" onclick="return false;">Invite Only</a>
+          </div>
+          <div class="layout_disclaimer__GGt6m">Waddle Around, and Make Friends!</div>
+          <div class="layout_copyright__lI1mk pt-3">&copy; Club Penguin 2026</div>
+        </div>
+
+        <div class="layout_social__H3Ted">
+                  </div>
+      </div>
+    </div>
+  </div>
+</div><!-- /layout_layout -->
+
+<script>
+  (function(){
+    var hamburger = document.getElementById('hamburger');
+    var menu = document.getElementById('mobileMenu');
+    if(!hamburger || !menu) return;
+    hamburger.addEventListener('click', function(){
+      menu.classList.toggle('layout_open__xfXDt');
+    });
+  })();
+</script>
+</body>
+</html>

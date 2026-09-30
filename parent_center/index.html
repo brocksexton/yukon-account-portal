@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script>window.__CP_DEMO__={"base":"/yukon-account-portal","view":"guest","key":"/parent_center/index.php","repoUrl":"https://github.com/brocksexton/yukon-account-portal","counterpart":{"guest":"parent_center/index.html","in":"parent_center/dashboard.signed-in.html"}}</script><script src="/yukon-account-portal/__demo/shim.js"></script>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <link rel="shortcut icon" href="/yukon-account-portal/favicon.ico"/>
+  <title>Parent Center - Login</title>
+
+  <!-- Base theme: Bootstrap 5 (reset, grid, utilities) + css/theme.css -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" crossorigin="anonymous"/>
+  <link rel="stylesheet" href="/yukon-account-portal/css/theme.css"/>
+
+  <link rel="stylesheet" href="/yukon-account-portal/css/cp-custom.css"/>
+  <link rel="stylesheet" href="/yukon-account-portal/parent_center/parent.css"/>
+  <link rel="stylesheet" href="/yukon-account-portal/parent_center/assets/parent_center.css"/>
+
+  <!-- Parent Center modular additions (keep parent_center.css stable; add new styles here) -->
+  <link rel="stylesheet" href="/yukon-account-portal/parent_center/assets/pc_child.css"/>
+  <link rel="stylesheet" href="/yukon-account-portal/parent_center/assets/pc_child_pages.css"/>
+  <link rel="stylesheet" href="/yukon-account-portal/parent_center/assets/pc_auth.css"/>
+</head>
+<body>
+<div class="pc-appRoot">
+  <!-- Parent Center uses a stable, custom header so it doesn't depend on Next.js hashed classnames. -->
+  <header class="pc-globalHeader" role="banner">
+    <div class="pc-globalHeaderInner">
+      <div class="pc-globalLogo">
+        <a href="/yukon-account-portal/index.html" class="cp-logoText" aria-label="Club Penguin">
+          <span class="cp-logoLine1">CLUB</span>
+          <span class="cp-logoLine2">PENGUIN</span>
+        </a>
+      </div>
+
+      <nav class="pc-globalNav" aria-label="Primary">
+        <a class="pc-globalNavLink" href="/yukon-account-portal/index.html">Home</a>
+        <a class="pc-globalNavLink" href="/yukon-account-portal/login.html">Manage My Penguin</a>
+        <a class="pc-globalNavLink" href="/yukon-account-portal/parent_center/index.html">Parent Center</a>
+              </nav>
+
+      <div class="pc-globalRight">
+                  <a class="pc-globalCta" href="/yukon-account-portal/parent_center/index.html" aria-label="Open Parent Center">Parent Center</a>
+              </div>
+    </div>
+  </header>
+
+  <main class="pc-globalContent" role="main">
+
+<div class="pc-shell">
+  <div class="pc-card pc-authPop">
+    <div class="pc-titleRow">
+      <img class="pc-heroIcon" src="/yukon-account-portal/parent_center/assets/pc/parents-icon.png" alt="">
+      <div>
+        <h1 class="pc-title" style="margin:0;">PARENT CENTER</h1>
+        <p class="pc-subtitle" style="margin:6px 0 0;">Sign in to manage linked penguin accounts, view playercards, and create child accounts.</p>
+      </div>
+    </div>
+
+    
+    
+    <div class="pc-authGrid">
+      <section class="pc-authBox" aria-label="Parent Center Login">
+        <div class="pc-authBoxTitle">Login</div>
+
+        <form method="post" class="cp-form" action="/yukon-account-portal/parent_center/index.html" autocomplete="on" data-demo-login="parent_center/dashboard.signed-in.html">
+          <input type="hidden" name="csrf" value="static-demo"/>
+
+          <label class="cp-label" for="email">Parent Email</label>
+          <input class="cp-input" id="email" name="email" type="email" required autocomplete="email" />
+
+          <label class="cp-label" for="password">Password</label>
+          <input class="cp-input" id="password" name="password" type="password" required autocomplete="current-password" />
+
+          <div class="pc-authCtas">
+            <button class="pc-btn pc-btn--primary" type="submit">Sign In</button>
+            <a class="pc-btn" href="/yukon-account-portal/index.html">Back to Home</a>
+          </div>
+        </form>
+
+        <div class="pc-authHint">
+          Tip: If you are using Parent Center for the first time, use <strong>Create Parent Account</strong>.
+        </div>
+      </section>
+
+      <aside class="pc-authBox" aria-label="Create Parent Account">
+        <div class="pc-authBoxTitle">Create Parent Account</div>
+        <p class="pc-muted" style="margin:0 0 12px;">
+          NOTICE: Parent Center accounts can only be created by existing, active penguin accounts.
+        </p>
+
+        <div class="pc-authCardSmall">
+          <ul class="pc-bulletList">
+            <li>Requires a valid penguin username + password</li>
+            <li>Penguin must not be banned</li>
+            <li>Lets you create child accounts without friend codes</li>
+            <li>Link/manage multiple child accounts under one dashboard</li>
+          </ul>
+        </div>
+
+        <div class="pc-authDivider"></div>
+
+        <div class="pc-authCtas">
+          <a class="pc-btn pc-btn--primary" href="/yukon-account-portal/parent_center/create_parent.html">Create Parent Account</a>
+        </div>
+
+        <div class="pc-authHint">
+          You will be asked to verify your in-game penguin account during setup.
+        </div>
+      </aside>
+    </div>
+
+    <div class="pc-footnote" style="margin-top:18px;">
+      This is a private, friends-only environment. Parent Center access is intended for families managing linked accounts.
+    </div>
+  </div>
+</div>
+
+  </main>
+
+  <footer class="pc-globalFooter" role="contentinfo">
+    <div class="pc-globalFooterInner">
+      <p class="pc-globalFooterText">
+        This is a private-access website. Account registration is disabled and requires an invite to play.
+      </p>
+      <p class="pc-globalFooterText" style="opacity:.85">
+        Parent Center is for private, friend-group account management only.
+      </p>
+    </div>
+  </footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script>window.__CP_DEMO__={"base":"/yukon-account-portal","view":"in","key":"/manage_penguin/studio.php","repoUrl":"https://github.com/brocksexton/yukon-account-portal","counterpart":{"guest":"login.html","in":"manage_penguin/studio.signed-in.html"}}</script><script src="/yukon-account-portal/__demo/shim.js"></script>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Outfit Studio - Club Penguin</title>
+
+  <!-- Manage My Penguin styles (self-contained; avoids fragile hashed CSS refs) -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;600;700;800;900&display=swap"/>
+  <link rel="stylesheet" href="/yukon-account-portal/manage_penguin/css/cp-custom.css"/>
+  <link rel="stylesheet" href="/yukon-account-portal/manage_penguin/manage.css"/>
+</head>
+<body>
+
+<link rel="stylesheet" href="/yukon-account-portal/manage_penguin/assets/studio/studio.css">
+
+    <!-- Animation libraries added for subtle UX improvements -->
+    <!-- GSAP 3.x is a high‑performance animation library. According to a 2025 CSS‑Tricks article, version 3.13 of GSAP and all of its plugins became free for commercial use【776772462460850†L24-L30】. -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <!-- VanillaTilt provides a lightweight 3D tilt effect and is distributed under the permissive MIT License【90440959444771†L289-L299】. -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+
+    <!-- SweetAlert2 offers beautiful, customizable replacement pop‑ups for alert(), prompt() and confirm().
+         It is distributed under the MIT License, which allows free use, modification and distribution【129066206245351†L4-L11】.
+         We load version 11.x from jsDelivr. -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.27/dist/sweetalert2.all.min.js"></script>
+
+    <!-- Font Awesome 6 for icons (free). Font Awesome Free is MIT licensed. We omit integrity/crossorigin
+         attributes here to avoid hash mismatches that could block the stylesheet. -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" referrerpolicy="no-referrer" />
+
+<div class="os-wrap">
+  <div class="os-shell">
+    <div class="os-head">
+      <div class="os-titleBlock">
+        <a href="/yukon-account-portal/manage_penguin/index.signed-in.html" class="os-backLink">← Back to Manage My Penguin</a>
+        <div class="os-kicker">Manage My Penguin</div>
+        <h1 class="os-title">Outfit Studio</h1>
+        <div class="os-sub">Browse and try on your wardrobe. Equip items instantly and save your look with ease.</div>
+      </div>
+
+      <div class="os-tools">
+        <div class="os-sceneCtl">
+  <label class="os-sceneLabel" for="osSceneSelect">Scene:</label>
+  <select id="osSceneSelect" class="os-sceneSelect">
+    <option value="blue">Club Penguin Blue</option>
+    <option value="avatar">Avatar Background</option>
+    <option value="winter_plaza">Winter Plaza</option>
+    <option value="random">Random Colours</option>
+  </select>
+</div>
+
+<button type="button" class="os-pinToggle" id="osPinToggle" aria-pressed="false" title="Hide/Show your pin without unequipping it">
+  Pin: <span id="osPinToggleText">Shown</span>
+</button>
+
+        <div class="os-viewTabs" role="tablist" aria-label="View mode">
+          <button type="button" class="os-tab is-active" data-view="preview">Preview</button>
+          <button type="button" class="os-tab" data-view="current">Current</button>
+          <button type="button" class="os-tab" data-view="compare">Compare</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="os-grid">
+      <!-- LEFT: Stage -->
+      <section class="os-stageCard">
+        <div class="os-stageHeader">
+          <div class="os-stageHeaderMain">
+            <div class="os-stageTitle">Your Outfit Stage</div>
+            <!-- Update hint: mention Equip Now / Save to Library instead of Save -->
+            <div class="os-stageHint">Select a category and click an item to equip it. When you’re happy, press Equip&nbsp;Now or Save&nbsp;to&nbsp;Library.</div>
+          </div>
+          <!-- Randomize toggle: moved from actions bar into the stage header. This icon
+               opens a small floating menu allowing the user to pick which parts
+               of the outfit to randomise. -->
+          <div class="os-stageRandom">
+            <button type="button" class="os-btn os-btnIcon" id="osRandomizeBtn" title="Randomize">
+              <i class="fa-solid fa-shuffle" aria-hidden="true"></i>
+            </button>
+            <div id="osRandomMenu" class="os-randomMenu" style="display:none;">
+              <div class="os-randomMenuHeader">
+                <span class="os-randomMenuTitle">Randomize Outfit</span>
+                <button type="button" class="os-randomMenuClose" id="osRandomMenuClose" title="Close">
+                  <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+                </button>
+              </div>
+              <div class="os-randomOptions" id="osRandomOptions">
+                <!-- Checkboxes populated by JS -->
+              </div>
+              <button type="button" class="os-btn os-btnSoft os-randomGoBtn" id="osRandomGoBtn">
+                <i class="fa-solid fa-shuffle" aria-hidden="true"></i> Go
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="os-stage" id="osStage" data-scene="blue">
+          <div class="os-sceneFill" id="osSceneFill" aria-hidden="true"></div>
+          <div class="os-stageFrame" id="osStageFrame">
+            <div class="os-sceneMain" id="osSceneMain" aria-hidden="true"></div>
+            <div class="os-stageOverlay" aria-hidden="true"></div>
+
+            <div class="os-avatarSlot os-avatarSlot--current" id="osAvatarCurrent">
+            <div class="os-avatarLabel">Current</div>
+            <div class="os-avatar" data-role="avatar" data-prefix="current">  <div class="os-avatarInner" aria-hidden="true">    <img class="os-layer os-colour" data-layer="colour" src="/yukon-account-portal/yukon/assets/media/color/penguin/5.png" alt="">    <img class="os-layer os-base" data-layer="top" src="/yukon-account-portal/assets/img/penguin_transparent.png" alt="">    <img class="os-layer os-paper" data-layer="feet" src="/yukon-account-portal/yukon/assets/media/clothing/paper/365.png" alt="" >    <img class="os-layer os-paper" data-layer="body" src="/yukon-account-portal/yukon/assets/media/clothing/paper/243.png" alt="" >    <img class="os-layer os-paper" data-layer="neck" src="/yukon-account-portal/yukon/assets/media/clothing/paper/179.png" alt="" >    <img class="os-layer os-paper" data-layer="face" src="/yukon-account-portal/yukon/assets/media/clothing/paper/125.png" alt="" >    <img class="os-layer os-paper" data-layer="head" src="/yukon-account-portal/yukon/assets/media/clothing/paper/413.png" alt="" >    <img class="os-layer os-paper" data-layer="hand" src="" alt="" style="display:none">  </div>  <img class="os-pin" data-layer="pin" src="/yukon-account-portal/yukon/assets/media/clothing/icon/120/565.png" alt="" ></div>          </div>
+
+          <div class="os-avatarSlot os-avatarSlot--draft is-active" id="osAvatarDraft">
+            <div class="os-avatarLabel">Preview</div>
+            <div class="os-avatar" data-role="avatar" data-prefix="draft">  <div class="os-avatarInner" aria-hidden="true">    <img class="os-layer os-colour" data-layer="colour" src="/yukon-account-portal/yukon/assets/media/color/penguin/5.png" alt="">    <img class="os-layer os-base" data-layer="top" src="/yukon-account-portal/assets/img/penguin_transparent.png" alt="">    <img class="os-layer os-paper" data-layer="feet" src="/yukon-account-portal/yukon/assets/media/clothing/paper/365.png" alt="" >    <img class="os-layer os-paper" data-layer="body" src="/yukon-account-portal/yukon/assets/media/clothing/paper/243.png" alt="" >    <img class="os-layer os-paper" data-layer="neck" src="/yukon-account-portal/yukon/assets/media/clothing/paper/179.png" alt="" >    <img class="os-layer os-paper" data-layer="face" src="/yukon-account-portal/yukon/assets/media/clothing/paper/125.png" alt="" >    <img class="os-layer os-paper" data-layer="head" src="/yukon-account-portal/yukon/assets/media/clothing/paper/413.png" alt="" >    <img class="os-layer os-paper" data-layer="hand" src="" alt="" style="display:none">  </div>  <img class="os-pin" data-layer="pin" src="/yukon-account-portal/yukon/assets/media/clothing/icon/120/565.png" alt="" ></div>          </div>
+        </div>
+      </div>
+
+        <div class="os-equipBar" id="osEquipBar">
+      <div class="os-equipChipWrap" data-slot="color">
+      <button type="button" class="os-equipChip" data-slot="color" title="Color">
+        <span class="os-equipIcon">
+          <img src="/yukon-account-portal/yukon/assets/media/color/icon/120/5.png" onerror="this.style.opacity=0.25" alt="">
+        </span>
+        <span class="os-equipMeta">
+          <span class="os-equipSlot">Color</span>
+          <span class="os-equipId" id="osEquip-color">#5</span>
+        </span>
+      </button>
+
+      <button type="button" class="os-unequipBtn" data-unequip="color" title="Unequip Color">
+        <img src="/yukon-account-portal/manage_penguin/assets/studio/icons/remove_item.webp" alt="">
+      </button>
+    </div>
+      <div class="os-equipChipWrap" data-slot="head">
+      <button type="button" class="os-equipChip" data-slot="head" title="Head">
+        <span class="os-equipIcon">
+          <img src="/yukon-account-portal/yukon/assets/media/clothing/icon/240/413.png" onerror="this.style.opacity=0.25" alt="">
+        </span>
+        <span class="os-equipMeta">
+          <span class="os-equipSlot">Head</span>
+          <span class="os-equipId" id="osEquip-head">#413</span>
+        </span>
+      </button>
+
+      <button type="button" class="os-unequipBtn" data-unequip="head" title="Unequip Head">
+        <img src="/yukon-account-portal/manage_penguin/assets/studio/icons/remove_item.webp" alt="">
+      </button>
+    </div>
+      <div class="os-equipChipWrap" data-slot="face">
+      <button type="button" class="os-equipChip" data-slot="face" title="Face">
+        <span class="os-equipIcon">
+          <img src="/yukon-account-portal/yukon/assets/media/clothing/icon/240/125.png" onerror="this.style.opacity=0.25" alt="">
+        </span>
+        <span class="os-equipMeta">
+          <span class="os-equipSlot">Face</span>
+          <span class="os-equipId" id="osEquip-face">#125</span>
+        </span>
+      </button>
+
+      <button type="button" class="os-unequipBtn" data-unequip="face" title="Unequip Face">
+        <img src="/yukon-account-portal/manage_penguin/assets/studio/icons/remove_item.webp" alt="">
+      </button>
+    </div>
+      <div class="os-equipChipWrap" data-slot="neck">
+      <button type="button" class="os-equipChip" data-slot="neck" title="Neck">
+        <span class="os-equipIcon">
+          <img src="/yukon-account-portal/yukon/assets/media/clothing/icon/240/179.png" onerror="this.style.opacity=0.25" alt="">
+        </span>
+        <span class="os-equipMeta">
+          <span class="os-equipSlot">Neck</span>
+          <span class="os-equipId" id="osEquip-neck">#179</span>
+        </span>
+      </button>
+
+      <button type="button" class="os-unequipBtn" data-unequip="neck" title="Unequip Neck">
+        <img src="/yukon-account-portal/manage_penguin/assets/studio/icons/remove_item.webp" alt="">
+      </button>
+    </div>
+      <div class="os-equipChipWrap" data-slot="body">
+      <button type="button" class="os-equipChip" data-slot="body" title="Body">
+        <span class="os-equipIcon">
+          <img src="/yukon-account-portal/yukon/assets/media/clothing/icon/240/243.png" onerror="this.style.opacity=0.25" alt="">
+        </span>
+        <span class="os-equipMeta">
+          <span class="os-equipSlot">Body</span>
+          <span class="os-equipId" id="osEquip-body">#243</span>
+        </span>
+      </button>
+
+      <button type="button" class="os-unequipBtn" data-unequip="body" title="Unequip Body">
+        <img src="/yukon-account-portal/manage_penguin/assets/studio/icons/remove_item.webp" alt="">
+      </button>
+    </div>
+      <div class="os-equipChipWrap" data-slot="hand">
+      <button type="button" class="os-equipChip" data-slot="hand" title="Hand">
+        <span class="os-equipIcon">
+          <img src="" onerror="this.style.opacity=0.25" alt="">
+        </span>
+        <span class="os-equipMeta">
+          <span class="os-equipSlot">Hand</span>
+          <span class="os-equipId" id="osEquip-hand">None</span>
+        </span>
+      </button>
+
+      <button type="button" class="os-unequipBtn" data-unequip="hand" title="Unequip Hand">
+        <img src="/yukon-account-portal/manage_penguin/assets/studio/icons/remove_item.webp" alt="">
+      </button>
+    </div>
+      <div class="os-equipChipWrap" data-slot="feet">
+      <button type="button" class="os-equipChip" data-slot="feet" title="Feet">
+        <span class="os-equipIcon">
+          <img src="/yukon-account-portal/yukon/assets/media/clothing/icon/240/365.png" onerror="this.style.opacity=0.25" alt="">
+        </span>
+        <span class="os-equipMeta">
+          <span class="os-equipSlot">Feet</span>
+          <span class="os-equipId" id="osEquip-feet">#365</span>
+        </span>
+      </button>
+
+      <button type="button" class="os-unequipBtn" data-unequip="feet" title="Unequip Feet">
+        <img src="/yukon-account-portal/manage_penguin/assets/studio/icons/remove_item.webp" alt="">
+      </button>
+    </div>
+      <div class="os-equipChipWrap" data-slot="photo">
+      <button type="button" class="os-equipChip" data-slot="photo" title="Photo">
+        <span class="os-equipIcon">
+          <img src="/yukon-account-portal/yukon/assets/media/clothing/icon/240/932.png" onerror="this.style.opacity=0.25" alt="">
+        </span>
+        <span class="os-equipMeta">
+          <span class="os-equipSlot">Photo</span>
+          <span class="os-equipId" id="osEquip-photo">#932</span>
+        </span>
+      </button>
+
+      <button type="button" class="os-unequipBtn" data-unequip="photo" title="Unequip Photo">
+        <img src="/yukon-account-portal/manage_penguin/assets/studio/icons/remove_item.webp" alt="">
+      </button>
+    </div>
+      <div class="os-equipChipWrap" data-slot="flag">
+      <button type="button" class="os-equipChip" data-slot="flag" title="Flag">
+        <span class="os-equipIcon">
+          <img src="/yukon-account-portal/yukon/assets/media/clothing/icon/240/565.png" onerror="this.style.opacity=0.25" alt="">
+        </span>
+        <span class="os-equipMeta">
+          <span class="os-equipSlot">Flag</span>
+          <span class="os-equipId" id="osEquip-flag">#565</span>
+        </span>
+      </button>
+
+      <button type="button" class="os-unequipBtn" data-unequip="flag" title="Unequip Flag">
+        <img src="/yukon-account-portal/manage_penguin/assets/studio/icons/remove_item.webp" alt="">
+      </button>
+    </div>
+  </div>
+
+        <div class="os-actions">
+          <!-- Reset the draft state back to the currently equipped items -->
+          <button type="button" class="os-btn os-btnSoft" id="osResetBtn" title="Reset">
+            <i class="fa-solid fa-arrow-rotate-left" aria-hidden="true"></i>
+            <span class="os-btnText">Reset</span>
+          </button>
+
+          <!-- Equip now button performs a quick server call to persist the current draft outfit
+               immediately. It bypasses the form submission and returns JSON. -->
+          <button type="button" class="os-btn" id="osEquipNowBtn" title="Equip Now">
+            <i class="fa-solid fa-check-circle" aria-hidden="true"></i>
+            <span class="os-btnText">Equip</span>
+          </button>
+
+          <!-- Save to library allows users to store an outfit with a custom name and privacy setting. -->
+          <button type="button" class="os-btn" id="osSaveToLibBtn" title="Save to Library">
+            <i class="fa-solid fa-bookmark" aria-hidden="true"></i>
+            <span class="os-btnText">Save</span>
+          </button>
+
+
+          <!-- Hidden CSRF token for use by the JavaScript API calls. We keep a single input
+               with the "csrf_token" name so existing JS (equipNow and saveToLibrary)
+               continue to locate it via document.querySelector('input[name="csrf_token"]').
+               This input is not visible to the user and is not wrapped in a form. -->
+          <input type="hidden" name="csrf_token" value="static-demo" style="display:none;">
+
+          <!-- The old fallback Save Outfit form has been removed. Saving to the game now
+               happens via the Equip Now button which calls the API directly. -->
+        </div> <!-- /.os-actions -->
+
+        <!-- Saved outfits preview: shows a few recently saved outfits with quick apply buttons.
+             The list is populated via JavaScript using the /api/outfits.php endpoint. Users can
+             click "View all" to open a modal with the full list. -->
+        <div class="os-savedSection" id="osSavedSection" style="display:none;">
+          <div class="os-savedHeader">Your saved outfits</div>
+          <div class="os-savedList" id="osSavedList">
+            <!-- populated by JS -->
+          </div>
+          <button type="button" class="os-btn os-btnSoft" id="osSavedViewAllBtn">View All</button>
+        </div>
+      </section>
+
+      <!-- RIGHT: Browser -->
+      <aside class="os-browserCard">
+        <div class="os-browserTop">
+          <div class="os-chips" id="osSlotChips">
+            <button type="button" class="os-chip is-active" data-filter="all">All</button>
+                          <button type="button" class="os-chip" data-filter="color">Color</button>
+                          <button type="button" class="os-chip" data-filter="head">Head</button>
+                          <button type="button" class="os-chip" data-filter="face">Face</button>
+                          <button type="button" class="os-chip" data-filter="neck">Neck</button>
+                          <button type="button" class="os-chip" data-filter="body">Body</button>
+                          <button type="button" class="os-chip" data-filter="hand">Hand</button>
+                          <button type="button" class="os-chip" data-filter="feet">Feet</button>
+                          <button type="button" class="os-chip" data-filter="photo">Photo</button>
+                          <button type="button" class="os-chip" data-filter="flag">Flag</button>
+                        <!-- Saved filter chip: allows users to view their saved outfits in the right panel
+                 instead of the inventory grid. Clicking this chip will show the Saved tab
+                 populated via loadSavedTab() in studio.js. -->
+            <button type="button" class="os-chip" data-filter="saved">Saved</button>
+          </div>
+
+          <div class="os-controls">
+            <input id="osSearch" class="os-search" type="search" placeholder="Search by name or #ID…" autocomplete="off">
+            <div class="os-count"><span id="osCount">0</span> items</div>
+            <div class="os-viewToggle" id="osViewToggle" role="group" aria-label="Inventory view">
+              <button type="button" class="os-viewBtn is-active" data-inv="classic">Comfortable</button>
+              <button type="button" class="os-viewBtn" data-inv="grid3">3-per-row</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="os-pager" id="osPagerTop" aria-label="Item pages">
+          <button type="button" class="os-pageBtn" data-page="prev">Prev</button>
+          <div class="os-pageStat"><span id="osPageNow">1</span> / <span id="osPageTotal">1</span></div>
+          <button type="button" class="os-pageBtn" data-page="next">Next</button>
+        </div>
+
+        <div id="osGrid" class="os-itemGrid">
+          <button type="button" class="os-item" title="Red" data-item-id="5" data-slot="color" data-name="red">  <img src="/yukon-account-portal/yukon/assets/media/color/icon/120/5.png" onerror="this.style.opacity=0.25" alt="Red">  <div class="os-itemMeta"><div class="os-itemName">Red</div><div class="os-itemId">#5</div></div></button><button type="button" class="os-item" title="Tan Cowboy Hat" data-item-id="404" data-slot="head" data-name="tan cowboy hat">  <img src="/yukon-account-portal/yukon/assets/media/clothing/icon/240/404.png" onerror="this.style.opacity=0.25" alt="Tan Cowboy Hat">  <div class="os-itemMeta"><div class="os-itemName">Tan Cowboy Hat</div><div class="os-itemId">#404</div></div></button><button type="button" class="os-item" title="Party Hat" data-item-id="413" data-slot="head" data-name="party hat">  <img src="/yukon-account-portal/yukon/assets/media/clothing/icon/240/413.png" onerror="this.style.opacity=0.25" alt="Party Hat">  <div class="os-itemMeta"><div class="os-itemName">Party Hat</div><div class="os-itemId">#413</div></div></button><button type="button" class="os-item" title="Tour Guide Hat" data-item-id="428" data-slot="head" data-name="tour guide hat">  <img src="/yukon-account-portal/yukon/assets/media/clothing/icon/240/428.png" onerror="this.style.opacity=0.25" alt="Tour Guide Hat">  <div class="os-itemMeta"><div class="os-itemName">Tour Guide Hat</div><div class="os-itemId">#428</div></div></button><button type="button" class="os-item" title="Black Cowboy Hat" data-item-id="433" data-slot="head" data-name="black cowboy hat">  <img src="/yukon-account-portal/yukon/assets/media/clothing/icon/240/433.png" onerror="this.style.opacity=0.25" alt="Black Cowboy Hat">  <div class="os-itemMeta"><div class="os-itemName">Black Cowboy Hat</div><div class="os-itemId">#433</div></div></button><button type="button" class="os-item" title="Viking Helmet" data-item-id="452" data-slot="head" data-name="viking helmet">  <img src="/yukon-account-portal/yukon/assets/media/clothing/icon/240/452.png" onerror="this.style.opacity=0.25" alt="Viking Helmet">  <div class="os-itemMeta"><div class="os-itemName">Viking Helmet</div><div class="os-itemId">#452</div></div></button><button type="button" class="os-item" title="Pink Viking Helmet" data-item-id="455" data-slot="head" data-name="pink viking helmet">  <img src="/yukon-account-portal/yukon/assets/media/clothing/icon/240/455.png" onerror="this.style.opacity=0.25" alt="Pink Viking Helmet">  <div class="os-itemMeta"><div class="os-itemName">Pink Viking Helmet</div><div class="os-itemId">#455</div></div></button><button type="button" class="os-item" title="Headphones" data-item-id="481" data-slot="head" data-name="headphones">  <img src="/yukon-account-portal/yukon/assets/media/clothing/icon/240/481.png" onerror="this.style.opacity=0.25" alt="Headphones">  <div class="os-itemMeta"><div class="os-itemName">Headphones</div><div class="os-itemId">#481</div></div></button><button type="button" class="os-item" title="Blue Earmuffs" data-item-id="483" data-slot="head" data-name="blue earmuffs">  <img src="/yukon-account-portal/yukon/assets/media/clothing/icon/240/483.png" onerror="this.style.opacity=0.25" alt="Blue Earmuffs">  <div class="os-itemMeta"><div class="os-itemName">Blue Earmuffs</div><div class="os-itemId">#483</div></div></button><button type="button" class="os-item" title="Blue Headphones" data-item-id="1164" data-slot="head" data-name="blue headphones">  <img src="/yukon-account-portal/yukon/assets/media/clothing/icon/240/1164.png" onerror="this.style.opacity=0.25" alt="Blue Headphones">  <div class="os-itemMeta"><div class="os-itemName">Blue Headphones</div><div class="os-itemId">#1164</div></div></button><button type="button" class="os-item" title="Aviator Sunglasses" data-item-id="125" data-slot="face" data-name="aviator sunglasses">  <img src="/yukon-account-portal/yukon/assets/media/clothing/icon/240/125.png" onerror="this.style.opacity=0.25" alt="Aviator Sunglasses">  <div class="os-itemMeta"><div class="os-itemName">Aviator Sunglasses</div><div class="os-itemId">#125</div></div></button><button type="button" class="os-item" title="Green Bowtie" data-item-id="166" data-slot="neck" data-name="green bowtie">  <img src="/yukon-account-portal/yukon/assets/media/clothing/icon/240/166.png" onerror="this.style.opacity=0.25" alt="Green Bowtie">  <div class="os-itemMeta"><div class="os-itemName">Green Bowtie</div><div class="os-itemId">#166</div></div></button><button type="button" class="os-item" title="Blue Scarf" data-item-id="179" data-slot="neck" data-name="blue scarf">  <img src="/yukon-account-portal/yukon/assets/media/clothing/icon/240/179.png" onerror="this.style.opacity=0.25" alt="Blue Scarf">  <div class="os-itemMeta"><div class="os-itemName">Blue Scarf</div><div class="os-itemId">#179</div></div></button><button type="button" class="os-item" title="Black Bowtie" data-item-id="214" data-slot="neck" data-name="black bowtie">  <img src="/yukon-account-portal/yukon/assets/media/clothing/icon/240/214.png" onerror="this.style.opacity=0.25" alt="Black Bowtie">  <div class="os-itemMeta"><div class="os-itemName">Black Bowtie</div><div class="os-itemId">#214</div></div></button><button type="button" class="os-item" title="Cowboy Vest" data-item-id="217" data-slot="body" data-name="cowboy vest">  <img src="/yukon-account-portal/yukon/assets/media/clothing/icon/240/217.png" onerror="this.style.opacity=0.25" alt="Cowboy Vest">  <div class="os-itemMeta"><div class="os-itemName">Cowboy Vest</div><div class="os-itemId">#217</div></div></button><button type="button" class="os-item" title="Black Hoodie" data-item-id="221" data-slot="body" data-name="black hoodie">  <img src="/yukon-account-portal/yukon/assets/media/clothing/icon/240/221.png" onerror="this.style.opacity=0.25" alt="Black Hoodie">  <div class="os-itemMeta"><div class="os-itemName">Black Hoodie</div><div class="os-itemId">#221</div></div></button><button type="button" class="os-item" title="Green Hoodie" data-item-id="223" data-slot="body" data-name="green hoodie">  <img src="/yukon-account-portal/yukon/assets/media/clothing/icon/240/223.png" onerror="this.style.opacity=0.25" alt="Green Hoodie">  <div class="os-itemMeta"><div class="os-itemName">Green Hoodie</div><div class="os-itemId">#223</div></div></button><button type="button" class="os-item" title="Black Parka" data-item-id="243" data-slot="body" data-name="black parka">  <img src="/yukon-account-portal/yukon/assets/media/clothing/icon/240/243.png" onerror="this.style.opacity=0.25" alt="Black Parka">  <div class="os-itemMeta"><div class="os-itemName">Black Parka</div><div class="os-itemId">#243</div></div></button><button type="button" class="os-item" title="Tuxedo" data-item-id="294" data-slot="body" data-name="tuxedo">  <img src="/yukon-account-portal/yukon/assets/media/clothing/icon/240/294.png" onerror="this.style.opacity=0.25" alt="Tuxedo">  <div class="os-itemMeta"><div class="os-itemName">Tuxedo</div><div class="os-itemId">#294</div></div></button><button type="button" class="os-item" title="Blue Tuxedo" data-item-id="4065" data-slot="body" data-name="blue tuxedo">  <img src="/yukon-account-portal/yukon/assets/media/clothing/icon/240/4065.png" onerror="this.style.opacity=0.25" alt="Blue Tuxedo">  <div class="os-itemMeta"><div class="os-itemName">Blue Tuxedo</div><div class="os-itemId">#4065</div></div></button><button type="button" class="os-item" title="Hockey Stick" data-item-id="220" data-slot="hand" data-name="hockey stick">  <img src="/yukon-account-portal/yukon/assets/media/clothing/icon/240/220.png" onerror="this.style.opacity=0.25" alt="Hockey Stick">  <div class="os-itemMeta"><div class="os-itemName">Hockey Stick</div><div class="os-itemId">#220</div></div></button><button type="button" class="os-item" title="Red Electric Guitar" data-item-id="233" data-slot="hand" data-name="red electric guitar">  <img src="/yukon-account-portal/yukon/assets/media/clothing/icon/240/233.png" onerror="this.style.opacity=0.25" alt="Red Electric Guitar">  <div class="os-itemMeta"><div class="os-itemName">Red Electric Guitar</div><div class="os-itemId">#233</div></div></button><button type="button" class="os-item" title="Acoustic Guitar" data-item-id="234" data-slot="hand" data-name="acoustic guitar">  <img src="/yukon-account-portal/yukon/assets/media/clothing/icon/240/234.png" onerror="this.style.opacity=0.25" alt="Acoustic Guitar">  <div class="os-itemMeta"><div class="os-itemName">Acoustic Guitar</div><div class="os-itemId">#234</div></div></button><button type="button" class="os-item" title="Black Sneakers" data-item-id="352" data-slot="feet" data-name="black sneakers">  <img src="/yukon-account-portal/yukon/assets/media/clothing/icon/240/352.png" onerror="this.style.opacity=0.25" alt="Black Sneakers">  <div class="os-itemMeta"><div class="os-itemName">Black Sneakers</div><div class="os-itemId">#352</div></div></button><button type="button" class="os-item" title="Blue Sneakers" data-item-id="357" data-slot="feet" data-name="blue sneakers">  <img src="/yukon-account-portal/yukon/assets/media/clothing/icon/240/357.png" onerror="this.style.opacity=0.25" alt="Blue Sneakers">  <div class="os-itemMeta"><div class="os-itemName">Blue Sneakers</div><div class="os-itemId">#357</div></div></button><button type="button" class="os-item" title="Winter Boots" data-item-id="365" data-slot="feet" data-name="winter boots">  <img src="/yukon-account-portal/yukon/assets/media/clothing/icon/240/365.png" onerror="this.style.opacity=0.25" alt="Winter Boots">  <div class="os-itemMeta"><div class="os-itemName">Winter Boots</div><div class="os-itemId">#365</div></div></button><button type="button" class="os-item" title="Cowboy Boots" data-item-id="368" data-slot="feet" data-name="cowboy boots">  <img src="/yukon-account-portal/yukon/assets/media/clothing/icon/240/368.png" onerror="this.style.opacity=0.25" alt="Cowboy Boots">  <div class="os-itemMeta"><div class="os-itemName">Cowboy Boots</div><div class="os-itemId">#368</div></div></button><button type="button" class="os-item" title="Heart Background" data-item-id="901" data-slot="photo" data-name="heart background">  <img src="/yukon-account-portal/yukon/assets/media/clothing/icon/240/901.png" onerror="this.style.opacity=0.25" alt="Heart Background">  <div class="os-itemMeta"><div class="os-itemName">Heart Background</div><div class="os-itemId">#901</div></div></button><button type="button" class="os-item" title="Flower Background" data-item-id="902" data-slot="photo" data-name="flower background">  <img src="/yukon-account-portal/yukon/assets/media/clothing/icon/240/902.png" onerror="this.style.opacity=0.25" alt="Flower Background">  <div class="os-itemMeta"><div class="os-itemName">Flower Background</div><div class="os-itemId">#902</div></div></button><button type="button" class="os-item" title="Nightime Background" data-item-id="903" data-slot="photo" data-name="nightime background">  <img src="/yukon-account-portal/yukon/assets/media/clothing/icon/240/903.png" onerror="this.style.opacity=0.25" alt="Nightime Background">  <div class="os-itemMeta"><div class="os-itemName">Nightime Background</div><div class="os-itemId">#903</div></div></button><button type="button" class="os-item" title="Clouds Background" data-item-id="904" data-slot="photo" data-name="clouds background">  <img src="/yukon-account-portal/yukon/assets/media/clothing/icon/240/904.png" onerror="this.style.opacity=0.25" alt="Clouds Background">  <div class="os-itemMeta"><div class="os-itemName">Clouds Background</div><div class="os-itemId">#904</div></div></button><button type="button" class="os-item" title="Winter Background" data-item-id="932" data-slot="photo" data-name="winter background">  <img src="/yukon-account-portal/yukon/assets/media/clothing/icon/240/932.png" onerror="this.style.opacity=0.25" alt="Winter Background">  <div class="os-itemMeta"><div class="os-itemName">Winter Background</div><div class="os-itemId">#932</div></div></button><button type="button" class="os-item" title="Jolly Roger Flag" data-item-id="565" data-slot="flag" data-name="jolly roger flag">  <img src="/yukon-account-portal/yukon/assets/media/clothing/icon/240/565.png" onerror="this.style.opacity=0.25" alt="Jolly Roger Flag">  <div class="os-itemMeta"><div class="os-itemName">Jolly Roger Flag</div><div class="os-itemId">#565</div></div></button>        </div>
+
+        <!-- Saved outfits tab: this container appears when the "Saved" filter is selected.
+             It is hidden by default and populated via JavaScript. Each saved outfit is
+             rendered as a miniature avatar preview with an apply button. -->
+        <div id="osSavedTab" class="os-savedTab" style="display:none;"></div>
+
+        <div class="os-pager" id="osPagerBottom" aria-label="Item pages">
+          <button type="button" class="os-pageBtn" data-page="prev">Prev</button>
+          <div class="os-pageStat"><span id="osPageNow2">1</span> / <span id="osPageTotal2">1</span></div>
+          <button type="button" class="os-pageBtn" data-page="next">Next</button>
+        </div>
+      </aside>
+    </div>
+  </div>
+</div>
+
+<script>
+window.__OS_BOOT__ = {"slots":["color","head","face","neck","body","hand","feet","photo","flag"],"current":{"color":5,"head":413,"face":125,"neck":179,"body":243,"hand":0,"feet":365,"photo":932,"flag":565},"scenes":{"winter_plaza":{"type":"image","url":"\/yukon-account-portal\/manage_penguin\/assets\/studio\/scenes\/winter_plaza.jpg"},"blue":{"type":"solid","color":"#0b58b1"}},"photoBase":"\/yukon-account-portal\/yukon\/assets\/media\/clothing\/photos\/"};
+</script>
+<script src="/yukon-account-portal/manage_penguin/assets/studio/studio.js?v=2"></script>
+
+</body>
+</html>

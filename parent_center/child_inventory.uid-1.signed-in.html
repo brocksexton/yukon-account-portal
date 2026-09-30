@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script>window.__CP_DEMO__={"base":"/yukon-account-portal","view":"in","key":"/parent_center/child_inventory.php?uid=1","repoUrl":"https://github.com/brocksexton/yukon-account-portal","counterpart":{"guest":"parent_center/index.html","in":"parent_center/child_inventory.uid-1.signed-in.html"}}</script><script src="/yukon-account-portal/__demo/shim.js"></script>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <link rel="shortcut icon" href="/yukon-account-portal/favicon.ico"/>
+  <title>Parent Center - Inventory - DemoParent</title>
+
+  <!-- Base theme: Bootstrap 5 (reset, grid, utilities) + css/theme.css -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" crossorigin="anonymous"/>
+  <link rel="stylesheet" href="/yukon-account-portal/css/theme.css"/>
+
+  <link rel="stylesheet" href="/yukon-account-portal/css/cp-custom.css"/>
+  <link rel="stylesheet" href="/yukon-account-portal/parent_center/parent.css"/>
+  <link rel="stylesheet" href="/yukon-account-portal/parent_center/assets/parent_center.css"/>
+
+  <!-- Parent Center modular additions (keep parent_center.css stable; add new styles here) -->
+  <link rel="stylesheet" href="/yukon-account-portal/parent_center/assets/pc_child.css"/>
+  <link rel="stylesheet" href="/yukon-account-portal/parent_center/assets/pc_child_pages.css"/>
+  <link rel="stylesheet" href="/yukon-account-portal/parent_center/assets/pc_auth.css"/>
+</head>
+<body>
+<div class="pc-appRoot">
+  <!-- Parent Center uses a stable, custom header so it doesn't depend on Next.js hashed classnames. -->
+  <header class="pc-globalHeader" role="banner">
+    <div class="pc-globalHeaderInner">
+      <div class="pc-globalLogo">
+        <a href="/yukon-account-portal/index.signed-in.html" class="cp-logoText" aria-label="Club Penguin">
+          <span class="cp-logoLine1">CLUB</span>
+          <span class="cp-logoLine2">PENGUIN</span>
+        </a>
+      </div>
+
+      <nav class="pc-globalNav" aria-label="Primary">
+        <a class="pc-globalNavLink" href="/yukon-account-portal/index.signed-in.html">Home</a>
+        <a class="pc-globalNavLink" href="/yukon-account-portal/manage_penguin/index.signed-in.html">Manage My Penguin</a>
+        <a class="pc-globalNavLink" href="/yukon-account-portal/parent_center/dashboard.signed-in.html">Parent Center</a>
+                  <a class="pc-globalNavLink" href="/yukon-account-portal/parent_center/index.html">Parent Logout</a>
+              </nav>
+
+      <div class="pc-globalRight">
+                  <div class="cp-userChip">
+            <a class="cp-userChipLink" href="/yukon-account-portal/parent_center/dashboard.signed-in.html" aria-label="Open Parent Center">
+              <span class="cp-userChipText">
+                <span class="cp-userChipName">parent@example.com</span>
+                <span class="cp-userChipSub">Parent Center</span>
+              </span>
+            </a>
+          </div>
+              </div>
+    </div>
+  </header>
+
+  <main class="pc-globalContent" role="main">
+
+<div class="pc-shell">
+  <div class="pc-card">
+
+    <div class="pc-pageTitleRow">
+      <div>
+        <h1 class="pc-pageTitle">Inventory</h1>
+        <div class="pc-pageSubtitle">DemoParent • 33 item(s)</div>
+      </div>
+
+      <div class="pc-toolbar">
+        <a class="pc-btnSm" href="/yukon-account-portal/parent_center/dashboard.signed-in.html">Back</a>
+        <a class="pc-btnSm" href="/yukon-account-portal/parent_center/child.uid-1.signed-in.html">Overview</a>
+      </div>
+    </div>
+
+    <nav class="pc-childNav" aria-label="Child pages"><a class="pc-childNavLink" href="/yukon-account-portal/parent_center/child.uid-1.signed-in.html">Overview</a><a class="pc-childNavLink is-active" href="/yukon-account-portal/parent_center/child_inventory.uid-1.signed-in.html">Inventory</a><a class="pc-childNavLink" href="/yukon-account-portal/parent_center/child_puffles.uid-1.signed-in.html">Puffles</a><a class="pc-childNavLink" href="/yukon-account-portal/parent_center/child_bans.uid-1.signed-in.html">Bans</a><a class="pc-childNavLink" href="/yukon-account-portal/parent_center/child_chat.uid-1.signed-in.html">Chat History</a><a class="pc-childNavLink" href="/yukon-account-portal/parent_center/child_friends.uid-1.signed-in.html">Friends</a></nav>
+    <div class="pc-tableWrap" style="padding:14px;">
+      <form method="get" class="pc-toolbar" style="justify-content:space-between;" data-demo-message="Search and filters are not available in the static demo.">
+        <input type="hidden" name="uid" value="1">
+        <div style="display:flex; gap:8px; flex-wrap:wrap; align-items:center;">
+          <input class="pc-searchInput" name="q" value="" placeholder="Search itemId (exact)" inputmode="numeric" pattern="[0-9]*" aria-label="Search inventory by itemId">
+          <button class="pc-btnSm" type="submit">Search</button>
+                  </div>
+        <div class="pc-muted" style="font-weight:900;">Page 1 / 1</div>
+      </form>
+
+              <div class="pc-invGrid" style="margin-top:12px;">
+                      <div class="pc-invItem">
+              <img alt="" src="/yukon-account-portal/yukon/assets/media/clothing/icon/120/5.png" loading="lazy">
+              <div class="pc-invId">5</div>
+            </div>
+                      <div class="pc-invItem">
+              <img alt="" src="/yukon-account-portal/yukon/assets/media/clothing/icon/120/125.png" loading="lazy">
+              <div class="pc-invId">125</div>
+            </div>
+                      <div class="pc-invItem">
+              <img alt="" src="/yukon-account-portal/yukon/assets/media/clothing/icon/120/166.png" loading="lazy">
+              <div class="pc-invId">166</div>
+            </div>
+                      <div class="pc-invItem">
+              <img alt="" src="/yukon-account-portal/yukon/assets/media/clothing/icon/120/179.png" loading="lazy">
+              <div class="pc-invId">179</div>
+            </div>
+                      <div class="pc-invItem">
+              <img alt="" src="/yukon-account-portal/yukon/assets/media/clothing/icon/120/214.png" loading="lazy">
+              <div class="pc-invId">214</div>
+            </div>
+                      <div class="pc-invItem">
+              <img alt="" src="/yukon-account-portal/yukon/assets/media/clothing/icon/120/217.png" loading="lazy">
+              <div class="pc-invId">217</div>
+            </div>
+                      <div class="pc-invItem">
+              <img alt="" src="/yukon-account-portal/yukon/assets/media/clothing/icon/120/220.png" loading="lazy">
+              <div class="pc-invId">220</div>
+            </div>
+                      <div class="pc-invItem">
+              <img alt="" src="/yukon-account-portal/yukon/assets/media/clothing/icon/120/221.png" loading="lazy">
+              <div class="pc-invId">221</div>
+            </div>
+                      <div class="pc-invItem">
+              <img alt="" src="/yukon-account-portal/yukon/assets/media/clothing/icon/120/223.png" loading="lazy">
+              <div class="pc-invId">223</div>
+            </div>
+                      <div class="pc-invItem">
+              <img alt="" src="/yukon-account-portal/yukon/assets/media/clothing/icon/120/233.png" loading="lazy">
+              <div class="pc-invId">233</div>
+            </div>
+                      <div class="pc-invItem">
+              <img alt="" src="/yukon-account-portal/yukon/assets/media/clothing/icon/120/234.png" loading="lazy">
+              <div class="pc-invId">234</div>
+            </div>
+                      <div class="pc-invItem">
+              <img alt="" src="/yukon-account-portal/yukon/assets/media/clothing/icon/120/243.png" loading="lazy">
+              <div class="pc-invId">243</div>
+            </div>
+                      <div class="pc-invItem">
+              <img alt="" src="/yukon-account-portal/yukon/assets/media/clothing/icon/120/294.png" loading="lazy">
+              <div class="pc-invId">294</div>
+            </div>
+                      <div class="pc-invItem">
+              <img alt="" src="/yukon-account-portal/yukon/assets/media/clothing/icon/120/352.png" loading="lazy">
+              <div class="pc-invId">352</div>
+            </div>
+                      <div class="pc-invItem">
+              <img alt="" src="/yukon-account-portal/yukon/assets/media/clothing/icon/120/357.png" loading="lazy">
+              <div class="pc-invId">357</div>
+            </div>
+                      <div class="pc-invItem">
+              <img alt="" src="/yukon-account-portal/yukon/assets/media/clothing/icon/120/365.png" loading="lazy">
+              <div class="pc-invId">365</div>
+            </div>
+                      <div class="pc-invItem">
+              <img alt="" src="/yukon-account-portal/yukon/assets/media/clothing/icon/120/368.png" loading="lazy">
+              <div class="pc-invId">368</div>
+            </div>
+                      <div class="pc-invItem">
+              <img alt="" src="/yukon-account-portal/yukon/assets/media/clothing/icon/120/404.png" loading="lazy">
+              <div class="pc-invId">404</div>
+            </div>
+                      <div class="pc-invItem">
+              <img alt="" src="/yukon-account-portal/yukon/assets/media/clothing/icon/120/413.png" loading="lazy">
+              <div class="pc-invId">413</div>
+            </div>
+                      <div class="pc-invItem">
+              <img alt="" src="/yukon-account-portal/yukon/assets/media/clothing/icon/120/428.png" loading="lazy">
+              <div class="pc-invId">428</div>
+            </div>
+                      <div class="pc-invItem">
+              <img alt="" src="/yukon-account-portal/yukon/assets/media/clothing/icon/120/433.png" loading="lazy">
+              <div class="pc-invId">433</div>
+            </div>
+                      <div class="pc-invItem">
+              <img alt="" src="/yukon-account-portal/yukon/assets/media/clothing/icon/120/452.png" loading="lazy">
+              <div class="pc-invId">452</div>
+            </div>
+                      <div class="pc-invItem">
+              <img alt="" src="/yukon-account-portal/yukon/assets/media/clothing/icon/120/455.png" loading="lazy">
+              <div class="pc-invId">455</div>
+            </div>
+                      <div class="pc-invItem">
+              <img alt="" src="/yukon-account-portal/yukon/assets/media/clothing/icon/120/481.png" loading="lazy">
+              <div class="pc-invId">481</div>
+            </div>
+                      <div class="pc-invItem">
+              <img alt="" src="/yukon-account-portal/yukon/assets/media/clothing/icon/120/483.png" loading="lazy">
+              <div class="pc-invId">483</div>
+            </div>
+                      <div class="pc-invItem">
+              <img alt="" src="/yukon-account-portal/yukon/assets/media/clothing/icon/120/565.png" loading="lazy">
+              <div class="pc-invId">565</div>
+            </div>
+                      <div class="pc-invItem">
+              <img alt="" src="/yukon-account-portal/yukon/assets/media/clothing/icon/120/901.png" loading="lazy">
+              <div class="pc-invId">901</div>
+            </div>
+                      <div class="pc-invItem">
+              <img alt="" src="/yukon-account-portal/yukon/assets/media/clothing/icon/120/902.png" loading="lazy">
+              <div class="pc-invId">902</div>
+            </div>
+                      <div class="pc-invItem">
+              <img alt="" src="/yukon-account-portal/yukon/assets/media/clothing/icon/120/903.png" loading="lazy">
+              <div class="pc-invId">903</div>
+            </div>
+                      <div class="pc-invItem">
+              <img alt="" src="/yukon-account-portal/yukon/assets/media/clothing/icon/120/904.png" loading="lazy">
+              <div class="pc-invId">904</div>
+            </div>
+                      <div class="pc-invItem">
+              <img alt="" src="/yukon-account-portal/yukon/assets/media/clothing/icon/120/932.png" loading="lazy">
+              <div class="pc-invId">932</div>
+            </div>
+                      <div class="pc-invItem">
+              <img alt="" src="/yukon-account-portal/yukon/assets/media/clothing/icon/120/1164.png" loading="lazy">
+              <div class="pc-invId">1164</div>
+            </div>
+                      <div class="pc-invItem">
+              <img alt="" src="/yukon-account-portal/yukon/assets/media/clothing/icon/120/4065.png" loading="lazy">
+              <div class="pc-invId">4065</div>
+            </div>
+                  </div>
+          </div>
+
+        <div class="pc-pager">
+      <a class="pc-btnSm" href="#" data-demo-off="That page is not part of the static demo." aria-label="Previous page" style="pointer-events:none; opacity:.55;">Prev</a>
+      <a class="pc-btnSm" href="#" data-demo-off="That page is not part of the static demo." aria-label="Next page" style="pointer-events:none; opacity:.55;">Next</a>
+    </div>
+
+  </div>
+</div>
+
+  </main>
+
+  <footer class="pc-globalFooter" role="contentinfo">
+    <div class="pc-globalFooterInner">
+      <p class="pc-globalFooterText">
+        This is a private-access website. Account registration is disabled and requires an invite to play.
+      </p>
+      <p class="pc-globalFooterText" style="opacity:.85">
+        Parent Center is for private, friend-group account management only.
+      </p>
+    </div>
+  </footer>
+</div>
+</body>
+</html>

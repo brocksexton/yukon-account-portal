@@ -1,0 +1,76 @@
+/* Parent Center auth pages (login + create parent)
+   Modular add-on styles.
+*/
+
+.pc-authGrid{
+  display:grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap:18px;
+  margin-top:18px;
+  align-items:start;
+}
+
+@media (max-width:900px){
+  .pc-authGrid{grid-template-columns:1fr;}
+}
+
+.pc-authBox{
+  background:rgba(234,242,247,0.92);
+  border:2px solid rgba(188,211,228,0.95);
+  border-radius:18px;
+  padding:18px;
+  box-shadow:var(--pc-shadow-soft);
+}
+
+.pc-authBoxTitle{
+  margin:0 0 10px;
+  font-size:22px;
+  font-weight:900;
+  color:var(--cp-ink);
+}
+
+.pc-authHint{
+  margin:10px 0 0;
+  font-size:14px;
+  font-weight:700;
+  color:var(--cp-muted);
+}
+
+.pc-authDivider{
+  height:1px;
+  background:rgba(188,211,228,0.95);
+  margin:14px 0;
+}
+
+.pc-authCtas{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  align-items:center;
+  margin-top:10px;
+}
+
+.pc-bulletList{
+  margin:0;
+  padding-left:18px;
+  color:var(--cp-ink-2);
+  font-weight:700;
+}
+
+.pc-bulletList li{ margin:6px 0; }
+
+.pc-authCardSmall{
+  background:rgba(255,255,255,0.92);
+  border:2px solid rgba(13,53,88,0.12);
+  border-radius:16px;
+  padding:14px;
+  box-shadow:var(--pc-shadow-soft);
+}
+
+@media (prefers-reduced-motion: no-preference){
+  .pc-authPop{ animation: pcAuthPop .36s ease-out both; }
+  @keyframes pcAuthPop{
+    from{ transform: translateY(10px); opacity:0; }
+    to{ transform: translateY(0); opacity:1; }
+  }
+}

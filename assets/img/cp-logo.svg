@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="130" viewBox="0 0 360 130">
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="3" flood-color="#000" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#shadow)" font-family="Arial Black, Arial, sans-serif" font-weight="900" text-anchor="start">
+    <text x="20" y="55" font-size="54" fill="#ffffff" stroke="#083a6b" stroke-width="10" paint-order="stroke">CLUB</text>
+    <text x="20" y="55" font-size="54" fill="#ffffff">CLUB</text>
+
+    <text x="20" y="100" font-size="58" fill="#ffb000" stroke="#083a6b" stroke-width="12" paint-order="stroke">PENGUIN</text>
+    <text x="20" y="100" font-size="58" fill="#ffb000">PENGUIN</text>
+
+  </g>
+</svg>

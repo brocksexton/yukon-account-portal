@@ -1,0 +1,338 @@
+/* Parent Center additions (keeps CPJourney look) */
+/*
+ * Define core color variables used throughout the Manage My Penguin dashboard.
+ * Without these values the CSS custom properties (e.g. --cp-ink, --cp-muted)
+ * fallback to default colors or remain unset, which can result in unreadable
+ * text and broken layouts. These variables are copied from the Parent Center
+ * theme to provide consistent styling.
+ */
+:root{
+  --cp-ink:#0b2b45;
+  --cp-ink-2:#234a63;
+  --cp-muted:#4f768f;
+  --cp-border:#bcd3e4;
+}
+
+/* Set a pleasant blue gradient background for the dashboard to match the
+ * overall site aesthetic.
+ */
+body{
+  background: linear-gradient(#0a6db5,#0b5d9f);
+  color: var(--cp-ink);
+}
+.cp-card { max-width: 980px; margin: 40px auto; background: rgba(255,255,255,0.92); border-radius: 18px; padding: 28px; box-shadow: 0 10px 30px rgba(0,0,0,0.18); }
+.cp-card--wide { max-width: 1100px; }
+.cp-title { font-size: 44px; margin: 0 0 8px; font-family: 'Trebuchet MS', Arial, sans-serif; letter-spacing: .5px; }
+.cp-subtitle { margin: 0 0 18px; opacity: .9; }
+.cp-h2 { margin: 0 0 10px; font-size: 22px; }
+.cp-text { margin: 0 0 12px; opacity: .9; }
+.cp-form { display: grid; gap: 10px; }
+.cp-label { font-weight: 700; font-size: 14px; }
+.cp-input { width: 100%; padding: 10px 12px; border-radius: 12px; border: 2px solid rgba(0, 83, 160, .35); outline: none; }
+.cp-input:focus { border-color: rgba(0, 83, 160, .7); box-shadow: 0 0 0 4px rgba(0,83,160,.15); }
+.cp-btn { display:inline-flex; align-items:center; justify-content:center; padding: 10px 14px; border-radius: 14px; border: 2px solid rgba(0,0,0,.15); cursor:pointer; font-weight: 800; }
+.cp-btn-soft{ background: rgba(255,255,255,.75); border-color: rgba(7,90,168,.28); color:#0b2b45; }
+.cp-btn--primary { background: linear-gradient(#3ab6ff, #1e77d6); color: #fff; border-color: rgba(0,0,0,.12); }
+.cp-btn--secondary { background: linear-gradient(#ffffff, #e7f3ff); color: #075aa8; border-color: rgba(7,90,168,.35); }
+.cp-btn:hover { transform: translateY(-1px); }
+.cp-alert { padding: 10px 12px; border-radius: 12px; margin: 12px 0; font-weight: 700; }
+.cp-alert--error { background: rgba(255, 60, 60, .14); border: 2px solid rgba(255,60,60,.35); color: #8a0f0f; }
+.cp-alert--success { background: rgba(60, 200, 120, .16); border: 2px solid rgba(60,200,120,.35); color: #0f5b2f; }
+.cp-footnote { margin-top: 18px; opacity: .85; font-size: 14px; }
+.cp-actions { display:flex; gap:10px; flex-wrap: wrap; align-items:center; }
+.cp-chip { display:flex; gap: 12px; align-items:center; padding: 12px; border-radius: 16px; background: rgba(7,90,168,.08); border: 2px solid rgba(7,90,168,.18); }
+.cp-avatarCircle { width: 64px; height: 64px; border-radius: 50%; overflow: hidden; border: 3px solid rgba(0,83,160,.35); flex: 0 0 auto; }
+.cp-avatarCircle img, .cp-avatarCircle svg { width:100%; height:100%; display:block; }
+.cp-table { width: 100%; border-collapse: collapse; }
+.cp-table th, .cp-table td { padding: 10px 8px; border-bottom: 1px solid rgba(0,0,0,.10); text-align:left; }
+.cp-table th { font-weight: 900; }
+.cp-badge { display:inline-block; padding: 3px 8px; border-radius: 999px; font-weight: 900; font-size: 12px; background: rgba(0,83,160,.12); border: 1px solid rgba(0,83,160,.22); }
+
+@media (min-width: 900px){ .cp-grid--2{ grid-template-columns: 1fr 1fr; } }
+
+/* Parent Center layout: keep footer at bottom and avoid "floating" text */
+.layout_root__m3G4m{ min-height:100vh; display:flex; flex-direction:column; }
+.layout_content__hcxKW{ flex:1 0 auto; }
+.layout_footer__gCw6u{ flex:0 0 auto; }
+
+/* Cleaner table rows for linked accounts */
+.cp-table td{ vertical-align: middle; }
+.cp-table .cp-btn{ min-width: 86px; }
+
+
+
+/* Parent Center themed assets */
+.pc-heroTop{
+  height:64px;
+  /* Use the existing container-top.png asset. The original path referenced
+     container-top-1.png which does not exist in this module, causing the
+     header strip to disappear. */
+  background:url('assets/container-top.png') center top / cover no-repeat;
+  border-radius:22px 22px 0 0;
+  margin:-22px -22px 18px -22px;
+  box-shadow:inset 0 -2px 0 rgba(0,0,0,.08);
+}
+.pc-actions{ display:flex; gap:14px; flex-wrap:wrap; margin:14px 0 18px; }
+.pc-actions .cp-btn{ position:relative; padding-left:44px; }
+.pc-actions .cp-btn::before{
+  content:'';
+  position:absolute;
+  left:14px;
+  top:50%;
+  width:20px;
+  height:20px;
+  transform:translateY(-50%);
+  background-size:contain;
+  background-repeat:no-repeat;
+  opacity:.95;
+}
+.cp-btn-claim::before{ background-image:url('assets/icon-home.png'); }
+.cp-btn-link::before{ background-image:url('assets/icon-edit.png'); }
+.cp-btn-create::before{ background-image:url('assets/icon-psa.png'); }
+
+/* Make avatar circles look closer to CP style */
+.pc-avatarWrap{
+  width:74px;
+  height:74px;
+  border-radius:999px;
+  overflow:hidden;
+  background:linear-gradient(#e9f4ff,#cfe7ff);
+  border:4px solid rgba(255,255,255,.65);
+  box-shadow:0 2px 0 rgba(0,0,0,.12), inset 0 0 0 2px rgba(0,0,0,.08);
+}
+.pc-avatar{
+  width:100%;
+  height:100%;
+  display:block;
+}
+
+
+/* Manage My Penguin – extra styles */
+.mp-wrap{max-width:1100px;margin:0 auto;padding:24px 16px 48px;}
+.mp-hero{display:flex;gap:18px;align-items:center;justify-content:space-between;margin:10px 0 18px;}
+.mp-heroLeft{display:flex;gap:14px;align-items:center;min-width:0;}
+.mp-heroArt{width:140px;height:auto;flex:0 0 auto;filter: drop-shadow(0 10px 18px rgba(0,0,0,.18));}
+.mp-heroTitle{margin:0;font-size:28px;line-height:1.1;color:var(--cp-ink);}
+.mp-heroSub{margin:6px 0 0;color:var(--cp-muted);font-weight:600;}
+.mp-tabs{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0 16px;}
+.mp-tab{display:inline-flex;align-items:center;gap:8px;padding:10px 12px;border:1px solid var(--cp-border);border-radius:999px;background:rgba(255,255,255,.65);text-decoration:none;color:var(--cp-ink);font-weight:800;box-shadow:0 8px 18px rgba(0,0,0,.06);}
+.mp-tab:hover{transform:translateY(-1px);}
+.mp-tab.is-active{background:linear-gradient(180deg,#fff,#f2f8ff);border-color:#8fb9d8;}
+.mp-kpiRow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;}
+@media (max-width:820px){.mp-kpiRow{grid-template-columns:1fr;}.mp-hero{flex-direction:column;align-items:flex-start;}}
+.mp-kpi{padding:14px 14px;}
+.mp-kpi .k{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--cp-muted);font-weight:900;margin:0 0 4px;}
+.mp-kpi .v{font-size:18px;font-weight:900;color:var(--cp-ink);margin:0;}
+.mp-grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+@media (max-width:980px){.mp-grid2{grid-template-columns:1fr;}}
+.mp-slotGrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;}
+@media (max-width:720px){.mp-slotGrid{grid-template-columns:repeat(2,minmax(0,1fr));}}
+.mp-slot{border:1px solid var(--cp-border);border-radius:14px;background:rgba(255,255,255,.7);padding:10px;display:flex;gap:10px;align-items:center;}
+.mp-slot img{width:54px;height:54px;object-fit:contain;background:#fff;border-radius:12px;border:1px solid var(--cp-border);}
+.mp-slot .meta{min-width:0;}
+.mp-slot .lbl{font-weight:900;color:var(--cp-ink);margin:0;font-size:13px;}
+.mp-slot .id{margin:2px 0 0;color:var(--cp-muted);font-weight:800;font-size:12px;}
+.mp-chips{display:flex;gap:8px;flex-wrap:wrap;}
+.mp-chip{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--cp-border);border-radius:999px;padding:8px 10px;background:rgba(255,255,255,.7);font-weight:900;color:var(--cp-ink);text-decoration:none;}
+.mp-chip img{width:26px;height:26px;border-radius:8px;border:1px solid var(--cp-border);background:#fff;object-fit:contain;}
+.mp-searchRow{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:10px 0 12px;}
+.mp-searchRow input{flex:1 1 260px;}
+.mp-muted{color:var(--cp-muted);font-weight:700;}
+
+
+/* --- Outfit Builder layout improvements --- */
+.mp-outfitLayout{display:grid;grid-template-columns:420px 1fr;gap:18px;align-items:start;margin-top:14px;}
+@media (max-width: 1024px){.mp-outfitLayout{grid-template-columns:1fr;}}
+.mp-sticky{position:sticky;top:16px;}
+.mp-builderHeader{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;flex-wrap:wrap;}
+.mp-builderActions{display:flex;gap:10px;align-items:center;}
+.mp-builderGrid{display:grid;grid-template-columns:260px 1fr;gap:14px;margin-top:14px;}
+@media (max-width: 900px){.mp-builderGrid{grid-template-columns:1fr;}}
+.mp-slotPicker{background:rgba(255,255,255,0.55);border:1px solid rgba(188,211,228,0.7);border-radius:16px;padding:12px;}
+.mp-slotPickerTitle{font-weight:800;color:#0b2b45;margin-bottom:10px;}
+.mp-slotPick{width:100%;display:flex;justify-content:space-between;gap:10px;padding:10px 12px;border-radius:14px;border:1px solid rgba(188,211,228,0.7);background:#fff;color:#0b2b45;font-weight:700;margin-bottom:8px;cursor:pointer;}
+.mp-slotPick:hover{transform:translateY(-1px);}
+.mp-slotPick .muted{opacity:.7;font-weight:800;}
+.mp-tip{margin-top:8px;font-size:12px;color:rgba(11,43,69,.75);}
+.mp-itemBrowser{}
+.mp-browserTop{display:flex;gap:10px;align-items:center;flex-wrap:wrap;}
+.mp-count{font-weight:800;color:#0b2b45;opacity:.8;}
+.mp-itemGrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px;margin-top:12px;}
+.mp-item{border:1px solid rgba(188,211,228,0.7);background:#fff;border-radius:18px;padding:10px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:8px;min-height:150px;transition:transform .08s ease, box-shadow .08s ease;}
+.mp-item:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(0,0,0,0.08);}
+.mp-item img{width:72px;height:72px;object-fit:contain}
+.mp-itemMeta{width:100%;text-align:center}
+.mp-itemName{font-weight:900;color:#0b2b45;font-size:13px;line-height:1.2;max-height:2.4em;overflow:hidden;}
+.mp-itemId{font-weight:900;color:rgba(11,43,69,.65);font-size:12px;}
+.mp-itemStatic{cursor:default;}
+.mp-invTools{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:14px;}
+.mp-pager{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:10px;margin-top:16px;}
+.mp-pageInfo{font-weight:900;color:#0b2b45;opacity:.8;}
+
+
+/* --- Outfit Studio (v2) --- */
+.mp-studio{display:grid;grid-template-columns:460px 1fr;gap:18px;align-items:start;margin-top:16px;}
+@media (max-width:1100px){.mp-studio{grid-template-columns:1fr;}}
+
+/* Keep the preview panel visible while browsing large inventories */
+@media (min-width: 1101px){
+  .mp-studioLeft{position:sticky;top:18px;align-self:start;}
+}
+
+.mp-studioPanel{padding:22px;}
+.mp-studioHeader{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;flex-wrap:wrap;}
+.mp-studioHeaderRight{display:flex;gap:10px;align-items:center;}
+
+.mp-toggle{display:inline-flex;background:rgba(255,255,255,.55);border:1px solid rgba(188,211,228,.75);border-radius:999px;padding:4px;}
+.mp-toggleBtn{appearance:none;border:0;background:transparent;padding:8px 10px;border-radius:999px;font-weight:900;color:rgba(11,43,69,.75);cursor:pointer;}
+.mp-toggleBtn.is-active{background:linear-gradient(180deg,#fff,#f2f8ff);color:#0b2b45;box-shadow:0 6px 14px rgba(0,0,0,.08);}
+
+.mp-stageWrap{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px;}
+.mp-stageWrap{overflow:hidden;}
+.mp-cardStage{min-width:0;}
+.mp-stageWrap[data-view="current"]{grid-template-columns:1fr;}
+.mp-stageWrap[data-view="draft"]{grid-template-columns:1fr;}
+.mp-stageWrap[data-view="current"] #mpStage-draft{display:none;}
+.mp-stageWrap[data-view="draft"] #mpStage-current{display:none;}
+
+.mp-cardStage{background:rgba(255,255,255,.55);border:1px solid rgba(188,211,228,.75);border-radius:18px;padding:12px;}
+/* Compare view: ensure it never spills into the right column on narrower layouts */
+@media (max-width: 1100px){
+  .mp-stageWrap{grid-template-columns:1fr;}
+}
+.mp-stageTitle{font-weight:1000;color:#0b2b45;font-size:12px;letter-spacing:.06em;text-transform:uppercase;opacity:.85;margin:0 0 10px;}
+.mp-avatarBig{margin:0 auto;border-radius:18px;overflow:hidden;box-shadow:0 16px 30px rgba(0,0,0,.12);}
+
+/* Ensure the avatar component looks right inside our card */
+.mp-avatarBig .cp-avatar-pin{right:10px;top:10px;}
+
+.mp-equipGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:14px;}
+@media (max-width:520px){.mp-equipGrid{grid-template-columns:repeat(2,minmax(0,1fr));}}
+.mp-equipTile{display:flex;gap:10px;align-items:center;background:rgba(255,255,255,.65);border:1px solid rgba(188,211,228,.75);border-radius:16px;padding:10px;}
+.mp-equipIcon{width:54px;height:54px;border-radius:14px;background:#fff;border:1px solid rgba(188,211,228,.85);display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.mp-equipIcon img{width:48px;height:48px;object-fit:contain;}
+.mp-equipSlot{font-weight:1000;color:#0b2b45;font-size:13px;}
+.mp-equipId{font-weight:900;color:rgba(11,43,69,.72);font-size:12px;margin-top:2px;}
+
+.mp-studioActions{display:flex;gap:10px;justify-content:flex-end;align-items:center;margin-top:14px;}
+
+.mp-slotChips{display:flex;gap:8px;flex-wrap:wrap;}
+.mp-chip{cursor:pointer;user-select:none;}
+.mp-chip.is-active{background:linear-gradient(180deg,#fff,#f2f8ff);border-color:#8fb9d8;}
+
+.mp-itemGrid--big{
+  /* Use a slightly wider minimum column size on the dashboard to give
+     outfit previews more breathing room. These values scale up on
+     larger screens but still collapse gracefully on mobile. */
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+}
+
+.mp-itemGrid--big .mp-item{
+  /* Increase the minimum height for outfit cards in the big grid so
+     names, descriptions and metadata have room to wrap without
+     overflowing. */
+  min-height: 190px;
+}
+
+/* Empty state banner for lists (commissions, etc.) */
+.cp-empty-banner {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:32px 24px;
+  border-radius:18px;
+  border:2px dashed var(--cp-border);
+  background:rgba(255,255,255,0.85);
+  text-align:center;
+}
+.cp-empty-banner img {
+  width:120px;
+  height:auto;
+  margin-bottom:12px;
+  filter:drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+}
+.cp-empty-banner h3 {
+  font-size:20px;
+  margin:0;
+  color:var(--cp-ink);
+  font-weight:900;
+}
+.cp-empty-banner p {
+  margin-top:6px;
+  margin-bottom:0;
+  color:var(--cp-muted);
+  font-size:14px;
+  font-weight:700;
+}
+
+/* Vertical list container for My Outfits.
+   NOTE: We intentionally do NOT use mp-itemGrid here because the outfit
+   cards have a wide internal layout and will overflow/overlap inside an
+   auto-fill grid when embedded in index.php tabs. */
+.mp-outfitList{
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+}
+
+/* Outfit listing card layout. This class is added to each outfit entry
+   in the My Outfits section to create a spacious, professional layout. */
+.mp-outfitCard {
+  display: grid;
+  grid-template-columns: 200px 1fr auto;
+  gap: 18px;
+  align-items: center;
+  padding: 18px;
+  margin-bottom: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(188,211,228,0.7);
+  border-radius: 18px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+@media (max-width: 900px) {
+  .mp-outfitCard {
+    grid-template-columns: 1fr;
+  }
+  .mp-outfitCard > div:nth-child(1) {
+    margin-bottom: 12px;
+  }
+  .mp-outfitCard > div:nth-child(3) {
+    /* This selector targets the actions container within the outfit card.
+       We don't set flex-direction here because the actions container uses
+       its own class (mp-outfitActions) which handles responsiveness. */
+  }
+}
+
+/* Actions container for outfit cards. Default is vertical; on smaller
+   screens it becomes horizontal and wraps. */
+.mp-outfitActions {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+@media (max-width: 900px) {
+  .mp-outfitActions {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+}
+
+/* Pager (used by Outfit Studio item grid) */
+.mp-pager{display:flex;align-items:center;justify-content:center;gap:12px;margin:14px 0 6px;}
+.mp-pageBtn{border:1px solid rgba(188,211,228,.9);background:rgba(255,255,255,.92);color:var(--cp-ink);border-radius:999px;padding:8px 14px;font-weight:900;cursor:pointer;box-shadow:0 6px 16px rgba(0,0,0,.08);}
+.mp-pageBtn:disabled{opacity:.5;cursor:not-allowed;box-shadow:none;}
+.mp-pageStat{font-weight:900;color:var(--cp-ink-2);background:rgba(255,255,255,.6);border:1px solid rgba(188,211,228,.65);border-radius:999px;padding:6px 12px;}
+
+/* --- Purchase modal (SweetAlert) --- */
+.cp-buy-summary{ text-align:left; }
+.cp-buy-summary__meta{ display:flex; gap:14px; flex-wrap:wrap; justify-content:space-between; padding:10px 12px; border-radius:12px; background:rgba(11,93,159,0.08); border:1px solid rgba(11,93,159,0.18); margin-bottom:12px; }
+.cp-buy-list{ display:flex; flex-direction:column; gap:8px; max-height: 320px; overflow:auto; padding-right:6px; }
+.cp-buy-row{ display:grid; grid-template-columns:42px 1fr auto; gap:10px; align-items:center; padding:10px 10px; border-radius:14px; background:rgba(255,255,255,0.85); border:1px solid rgba(188,211,228,0.85); box-shadow:0 8px 18px rgba(0,0,0,.06); }
+.cp-buy-icon{ width:42px; height:42px; image-rendering:pixelated; border-radius:10px; background:rgba(11,93,159,0.06); padding:4px; border:1px solid rgba(188,211,228,0.7); }
+.cp-buy-name{ font-weight:900; color:var(--cp-ink); }
+.cp-buy-cost{ font-weight:900; color:var(--cp-ink-2); background:rgba(152,255,152,0.25); border:1px solid rgba(152,255,152,0.35); padding:6px 10px; border-radius:999px; white-space:nowrap; }
+

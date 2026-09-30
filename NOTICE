@@ -18,8 +18,8 @@ owners:
 - every image in the repository (*.png, *.jpg, *.webp, *.svg, *.ico),
   including penguin, puffle and character art, backgrounds, icons and logos,
   and the screenshots in docs/screenshots
-- the Outfit Studio winter scene in manage_penguin/assets/studio/scenes/,
-  which is fan art signed "Sorian"
+- the winter scene in manage_penguin/assets/studio/scenes/ (an unused copy
+  also sits in parent_center/assets/puffles/), which is fan art signed "Sorian"
 
 Club Penguin and its characters, art, logos and names are trademarks and
 copyrights of Disney. This project is not affiliated with, endorsed by or

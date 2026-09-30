@@ -64,7 +64,7 @@ $u = function(string $path) use ($origin, $h): string {
 
       <nav class="pc-globalNav" aria-label="Primary">
         <a class="pc-globalNavLink" href="<?php echo e($h('index.php')); ?>">Home</a>
-        <a class="pc-globalNavLink" href="<?php echo e($h('play.php')); ?>">Manage My Penguin</a>
+        <a class="pc-globalNavLink" href="<?php echo e($h('manage_penguin/')); ?>">Manage My Penguin</a>
         <a class="pc-globalNavLink" href="<?php echo e($h('parent_center/dashboard.php')); ?>">Parent Center</a>
         <?php if ($parent): ?>
           <a class="pc-globalNavLink" href="<?php echo e($h('parent_center/logout.php')); ?>">Parent Logout</a>

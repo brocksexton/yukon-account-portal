@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/includes/admin_bootstrap.php';
+require_once __DIR__ . '/../includes/avatar_component.php';
 admin_require_staff();
 
 $title = 'Bans';

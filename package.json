@@ -1,0 +1,13 @@
+{
+  "name": "yukon-account-portal",
+  "private": true,
+  "description": "Tooling for the static GitHub Pages demo. The site itself is plain PHP and needs no Node.",
+  "type": "module",
+  "scripts": {
+    "demo:static": "node scripts/static-demo/build.mjs",
+    "demo:publish": "node scripts/static-demo/build.mjs --publish"
+  },
+  "devDependencies": {
+    "playwright-core": "^1.63.0"
+  }
+}

@@ -1,6 +1,21 @@
 RewriteEngine On
 Options -MultiViews
 
+# Keep Yukon's own folders private. These rules must come before the
+# "existing file" pass-through below, otherwise real files are served anyway.
+# Block /yukon-server entirely (better still: keep it outside the web root)
+RewriteRule ^yukon-server(/.*)?$ - [F,L]
+
+# Block /yukon except the media the site renders (/yukon/assets/media/*)
+RewriteCond %{REQUEST_URI} ^/yukon [NC]
+RewriteCond %{REQUEST_URI} !^/yukon/assets/media/ [NC]
+RewriteCond %{REQUEST_URI} !^/yukon/media/ [NC]
+RewriteRule ^yukon(/.*)?$ - [F,L]
+
+# Repository-only files and folders are not part of the site
+RewriteRule ^(sql|scripts|docs)(/.*)?$ - [F,L]
+RewriteRule (^|/)\.git - [F,L]
+
 # /manage_penguin/studio -> /manage_penguin/studio.php
 RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d
@@ -26,11 +41,3 @@ ErrorDocument 502 /error-pages/502.php
 ErrorDocument 504 /error-pages/504.php
 ErrorDocument 503 /error-pages/maintenance.php
 ErrorDocument 501 /error-pages/not_ready.php
-
-# Block /yukon-server entirely
-RewriteRule ^yukon-server(/.*)?$ - [F,L]
-
-# Block /yukon except /yukon/media/*
-RewriteCond %{REQUEST_URI} ^/yukon [NC]
-RewriteCond %{REQUEST_URI} !^/yukon/media/ [NC]
-RewriteRule ^yukon(/.*)?$ - [F,L]
